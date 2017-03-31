@@ -29,6 +29,8 @@ The \code{qgenlog()} returns values for P(X < x).
 The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 }
 \examples{
+pdgenlog(0.5)
+curve(dgenlog(x), c(-3,3))
 
 }
 \keyword{d,}

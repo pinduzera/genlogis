@@ -20,7 +20,7 @@
 #' @export
 #' @examples
 #' pdgenlog(0.5)
-#' plot(dgenlog(x), c(-3,3))
+#' curve(dgenlog(x), c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -83,7 +83,7 @@ pgenlog <- function(q, a, b, p){
 #' @export
 #' @examples 
 #' pdgenlog(0.5)
-#' plot(dgenlog(x), c(-3,3))
+#' curve(dgenlog(x), c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -147,7 +147,7 @@ dgenlog <- function(x, a, b, p){
 #' @export
 #' @examples 
 #' pdgenlog(0.5) 
-#' plot(dgenlog(x), c(-3,3))
+#' curve(dgenlog(x), c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -221,7 +221,7 @@ qgenlog <- function(k, a, b, p){
 #' @export
 #' @examples 
 #' pdgenlog(0.5) 
-#' plot(dgenlog(x), c(-3,3)) 
+#' curve(dgenlog(x), c(-3,3)) 
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
