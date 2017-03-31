@@ -1,10 +1,10 @@
 
-packages <- c("distr")
-if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
-  install.packages(setdiff(packages, rownames(installed.packages())))  
-}
-
-library('distr')
+# packages <- c("distr")
+# if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+#   install.packages(setdiff(packages, rownames(installed.packages())))  
+# }
+# 
+# library('distr')
 
 ##########################
 
@@ -20,6 +20,8 @@ library('distr')
 #' @export
 #' @examples
 #' 
+#' @import
+#' distr
 #' @usage 
 #' dgenlog(x, a, b, p)
 #' pgenlog(q, a, b, p)
