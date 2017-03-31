@@ -20,8 +20,6 @@
 #' @export
 #' @examples
 #' 
-#' @import
-#' distr
 #' @usage 
 #' dgenlog(x, a, b, p)
 #' pgenlog(q, a, b, p)
