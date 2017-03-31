@@ -81,7 +81,9 @@ pgenlog <- function(q, a, b, p){
 #' 
 #' @keywords d, p, q, r
 #' @export
-#' @examples
+#' @examples 
+#' pdgenlog(0.5)
+#' plot(dgenlog(x), c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -143,7 +145,9 @@ dgenlog <- function(x, a, b, p){
 #' 
 #' @keywords d, p, q, r
 #' @export
-#' @examples
+#' @examples 
+#' pdgenlog(0.5) 
+#' plot(dgenlog(x), c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -215,7 +219,9 @@ qgenlog <- function(k, a, b, p){
 #' 
 #' @keywords d, p, q, r
 #' @export
-#' @examples
+#' @examples 
+#' pdgenlog(0.5) 
+#' plot(dgenlog(x), c(-3,3)) 
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
