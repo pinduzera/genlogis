@@ -19,6 +19,8 @@
 #' @keywords d, p, q, r
 #' @export
 #' @examples
+#' pdgenlog(0.5)
+#' plot(dgenlog(x), c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
