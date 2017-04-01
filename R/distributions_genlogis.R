@@ -201,9 +201,9 @@ qgenlog <- function(k, a, b, p){
     return(d)
   }
   
-  cont_dist <- AbscontDistribution(d = dgen_log)
+  cont_dist <- distr::AbscontDistribution(d = dgen_log)
   
-  qdist <- q(cont_dist)
+  qdist <- distr::q(cont_dist)
   
   return(qdist(k))
   
@@ -274,12 +274,10 @@ rgenlog <- function(n, a, b, p){
     return(d)
   }
   
-  cont_dist <- AbscontDistribution(d = dgen_log)
+  cont_dist <- distr::AbscontDistribution(d = dgen_log)
   
-  rdist <- r(cont_dist)
+  rdist <- distr::r(cont_dist)
   
   return(rdist(n))
   
 }
-
-
