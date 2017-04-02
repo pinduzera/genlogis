@@ -1,11 +1,4 @@
 
-# packages <- c("distr")
-# if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
-#   install.packages(setdiff(packages, rownames(installed.packages())))  
-# }
-# 
-# library('distr')
-
 ##########################
 
 #' The Generalized logistic distribution
@@ -55,16 +48,6 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
     }
   }
   
-  # if(missing(a)){
-  #   a <- sqrt(2/pi)
-  # }
-  # if(missing(b)){
-  #   b <- 0.5
-  # }
-  # if(missing(p)){
-  #   p <- 2
-  # }
-  # 
   z <- (exp(-q*(a+b*(abs(q)^p)))+1)^(-1)
   
   return(z)
@@ -119,16 +102,6 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
     }
   }
   
-  # if(missing(a)){
-  #   a <- sqrt(2/pi)
-  # }
-  # if(missing(b)){
-  #   b <- 0.5
-  # }
-  # if(missing(p)){
-  #   p <- 2
-  # }
-  # 
   d <- ((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(abs(x)^p)))) / ((exp(-x*(a + b* (abs(x)^p)))+1)^2) 
   
   return(d)
@@ -183,16 +156,6 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
       stop('The argument "p" must be positive')
     }
   }
-  # 
-  # if(missing(a)){
-  #   a <- sqrt(2/pi)
-  # }
-  # if(missing(b)){
-  #   b <- 0.5
-  # }
-  # if(missing(p)){
-  #   p <- 2
-  # }
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
@@ -257,15 +220,6 @@ rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2){
     }
   }
   
-  # if(missing(a)){
-  #   a <- sqrt(2/pi)
-  # }
-  # if(missing(b)){
-  #   b <- 0.5
-  # }
-  # if(missing(p)){
-  #   p <- 2
-  # }
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
