@@ -36,7 +36,7 @@
 #' 
 #' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 
-pgenlog <- function(q, a, b, p){
+pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
     if(a <= 0){
@@ -55,16 +55,16 @@ pgenlog <- function(q, a, b, p){
     }
   }
   
-  if(missing(a)){
-    a <- sqrt(2/pi)
-  }
-  if(missing(b)){
-    b <- 0.5
-  }
-  if(missing(p)){
-    p <- 2
-  }
-  
+  # if(missing(a)){
+  #   a <- sqrt(2/pi)
+  # }
+  # if(missing(b)){
+  #   b <- 0.5
+  # }
+  # if(missing(p)){
+  #   p <- 2
+  # }
+  # 
   z <- (exp(-q*(a+b*(abs(q)^p)))+1)^(-1)
   
   return(z)
@@ -100,7 +100,7 @@ pgenlog <- function(q, a, b, p){
 #' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 
 
-dgenlog <- function(x, a, b, p){
+dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
     if(a <= 0){
@@ -119,16 +119,16 @@ dgenlog <- function(x, a, b, p){
     }
   }
   
-  if(missing(a)){
-    a <- sqrt(2/pi)
-  }
-  if(missing(b)){
-    b <- 0.5
-  }
-  if(missing(p)){
-    p <- 2
-  }
-  
+  # if(missing(a)){
+  #   a <- sqrt(2/pi)
+  # }
+  # if(missing(b)){
+  #   b <- 0.5
+  # }
+  # if(missing(p)){
+  #   p <- 2
+  # }
+  # 
   d <- ((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(abs(x)^p)))) / ((exp(-x*(a + b* (abs(x)^p)))+1)^2) 
   
   return(d)
@@ -165,7 +165,7 @@ dgenlog <- function(x, a, b, p){
 
 
 
-qgenlog <- function(k, a, b, p){
+qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
     if(a <= 0){
@@ -183,16 +183,16 @@ qgenlog <- function(k, a, b, p){
       stop('The argument "p" must be positive')
     }
   }
-  
-  if(missing(a)){
-    a <- sqrt(2/pi)
-  }
-  if(missing(b)){
-    b <- 0.5
-  }
-  if(missing(p)){
-    p <- 2
-  }
+  # 
+  # if(missing(a)){
+  #   a <- sqrt(2/pi)
+  # }
+  # if(missing(b)){
+  #   b <- 0.5
+  # }
+  # if(missing(p)){
+  #   p <- 2
+  # }
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
@@ -238,7 +238,7 @@ qgenlog <- function(k, a, b, p){
 #' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 
 
-rgenlog <- function(n, a, b, p){
+rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
     if(a <= 0){
@@ -257,15 +257,15 @@ rgenlog <- function(n, a, b, p){
     }
   }
   
-  if(missing(a)){
-    a <- sqrt(2/pi)
-  }
-  if(missing(b)){
-    b <- 0.5
-  }
-  if(missing(p)){
-    p <- 2
-  }
+  # if(missing(a)){
+  #   a <- sqrt(2/pi)
+  # }
+  # if(missing(b)){
+  #   b <- 0.5
+  # }
+  # if(missing(p)){
+  #   p <- 2
+  # }
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
