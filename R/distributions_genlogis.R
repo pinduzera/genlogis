@@ -185,16 +185,16 @@ qgenlog <- function(k, a, b, p){
   }
   
   if(missing(a)){
-    a1 <- sqrt(2/pi)
+    a <- sqrt(2/pi)
   }
   if(missing(b)){
-    b1 <- 0.5
+    b <- 0.5
   }
   if(missing(p)){
-    p1 <- 2
+    p <- 2
   }
   
-  dgen_log <- function(x, a = a1, b = b1, p = p1){
+  dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
     d <- ((a1 + b1*(1+p1)*(abs(x)^p1))*exp(-x*(a1+b1*(abs(x)^p1)))) / ((exp(-x*(a1 + b1* (abs(x)^p1)))+1)^2) 
     
