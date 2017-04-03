@@ -7,5 +7,8 @@ Depends: R (>= 3.0.0)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: distr
+Imports: distr, 
+         SweaveListingUtils,
+         startupmsg,
+         sfsmisc
 RoxygenNote: 6.0.1
