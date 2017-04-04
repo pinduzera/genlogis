@@ -30,7 +30,7 @@ The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which 
 }
 \examples{
 pdgenlog(0.5)
-curve(dgenlog(x), c(-3,3))
+curve(dgenlog(x), xlim = c(-3,3))
 
 }
 \keyword{d,}

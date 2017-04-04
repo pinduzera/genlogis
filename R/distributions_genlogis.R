@@ -13,7 +13,7 @@
 #' @export
 #' @examples
 #' pdgenlog(0.5)
-#' curve(dgenlog(x), c(-3,3))
+#' curve(dgenlog(x), xlim = c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -66,7 +66,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
 #' @export
 #' @examples 
 #' pdgenlog(0.5)
-#' curve(dgenlog(x), c(-3,3))
+#' curve(dgenlog(x), xlim = c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -120,7 +120,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
 #' @export
 #' @examples 
 #' pdgenlog(0.5) 
-#' curve(dgenlog(x), c(-3,3))
+#' curve(dgenlog(x), xlim = c(-3,3))
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
@@ -184,7 +184,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
 #' @export
 #' @examples 
 #' pdgenlog(0.5) 
-#' curve(dgenlog(x), c(-3,3)) 
+#' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
 #' dgenlog(x, a, b, p)
