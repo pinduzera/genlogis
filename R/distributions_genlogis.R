@@ -86,18 +86,18 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
 dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
-    if(a <= 0){
+    if(a < 0){
       stop('The argument "a" must be positive')
     }
   }
   if(!missing(a)){
-    if(b <= 0){
+    if(b < 0){
       
       stop('The argument "b" must be positive')
     }
   }
   if(!missing(a)){
-    if(p <= 0){
+    if(p < 0){
       stop('The argument "p" must be positive')
     }
   }
@@ -141,18 +141,18 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
 qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
-    if(a <= 0){
+    if(a < 0){
       stop('The argument "a" must be positive')
     }
   }
   if(!missing(a)){
-    if(b <= 0){
+    if(b < 0){
       
       stop('The argument "b" must be positive')
     }
   }
   if(!missing(a)){
-    if(p <= 0){
+    if(p < 0){
       stop('The argument "p" must be positive')
     }
   }
@@ -204,18 +204,18 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
 rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2){
   
   if(!missing(a)){
-    if(a <= 0){
+    if(a < 0){
       stop('The argument "a" must be positive')
     }
   }
   if(!missing(a)){
-    if(b <= 0){
+    if(b < 0){
       
       stop('The argument "b" must be positive')
     }
   }
   if(!missing(a)){
-    if(p <= 0){
+    if(p < 0){
       stop('The argument "p" must be positive')
     }
   }
