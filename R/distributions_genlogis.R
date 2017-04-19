@@ -8,18 +8,19 @@
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters > 0.
+#' @param scale scale parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
-#' @examples
-#' pdgenlog(0.5)
-#' curve(dgenlog(x), xlim = c(-3,3))
+#' @examples 
+#' pgenlog(0.5) 
+#' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p)
-#' pgenlog(q, a, b, p)
-#' qgenlog(k, a, b, p)
-#' rgenlog(n, a, b, p)
+#' dgenlog(x, a, b, p, scale)
+#' pgenlog(q, a, b, p, scale)
+#' qgenlog(k, a, b, p, scale)
+#' rgenlog(n, a, b, p, scale)
 #' 
 #' @details 
 #' 
@@ -29,7 +30,7 @@
 #' 
 #' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 
-pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
+pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -48,7 +49,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
     }
   }
   
-  z <- (exp(-q*(a+b*(abs(q)^p)))+1)^(-1)
+  z <- (exp(-(q-scale)*(a+b*(abs(q-scale)^p)))+1)^(-1)
   
   return(z)
 }
@@ -61,18 +62,19 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters > 0.
+#' @param scale scale parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
 #' @examples 
-#' pdgenlog(0.5)
-#' curve(dgenlog(x), xlim = c(-3,3))
+#' pgenlog(0.5) 
+#' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p)
-#' pgenlog(q, a, b, p)
-#' qgenlog(k, a, b, p)
-#' rgenlog(n, a, b, p)
+#' dgenlog(x, a, b, p, scale)
+#' pgenlog(q, a, b, p, scale)
+#' qgenlog(k, a, b, p, scale)
+#' rgenlog(n, a, b, p, scale)
 #' 
 #' @details 
 #' 
@@ -82,8 +84,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2){
 #' 
 #' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 
-
-dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
+dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -102,7 +103,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
     }
   }
   
-  d <- ((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(abs(x)^p)))) / ((exp(-x*(a + b* (abs(x)^p)))+1)^2) 
+  d <- ((a + b*(1+p)*(abs(x-scale)^p))*exp(-(x-scale)*(a+b*(abs(x-scale)^p)))) / ((exp(-(x-scale)*(a + b* (abs(x-scale)^p)))+1)^2) 
   
   return(d)
 }
@@ -115,18 +116,19 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters > 0.
+#' @param scale scale parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
 #' @examples 
-#' pdgenlog(0.5) 
-#' curve(dgenlog(x), xlim = c(-3,3))
+#' pgenlog(0.5) 
+#' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p)
-#' pgenlog(q, a, b, p)
-#' qgenlog(k, a, b, p)
-#' rgenlog(n, a, b, p)
+#' dgenlog(x, a, b, p, scale)
+#' pgenlog(q, a, b, p, scale)
+#' qgenlog(k, a, b, p, scale)
+#' rgenlog(n, a, b, p, scale)
 #' 
 #' @details 
 #' 
@@ -138,7 +140,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2){
 
 
 
-qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
+qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -159,7 +161,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
-    d <- ((a1 + b1*(1+p1)*(abs(x)^p1))*exp(-x*(a1+b1*(abs(x)^p1)))) / ((exp(-x*(a1 + b1* (abs(x)^p1)))+1)^2) 
+    d <- ((a1 + b1*(1+p1)*(abs(x-scale)^p1))*exp(-(x-scale)*(a1+b1*(abs(x-scale)^p1)))) / ((exp(-(x-scale)*(a1 + b1* (abs(x-scale)^p1)))+1)^2) 
     
     return(d)
   }
@@ -179,18 +181,19 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters > 0.
+#' @param scale scale parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
 #' @examples 
-#' pdgenlog(0.5) 
+#' pgenlog(0.5) 
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p)
-#' pgenlog(q, a, b, p)
-#' qgenlog(k, a, b, p)
-#' rgenlog(n, a, b, p)
+#' dgenlog(x, a, b, p, scale)
+#' pgenlog(q, a, b, p, scale)
+#' qgenlog(k, a, b, p, scale)
+#' rgenlog(n, a, b, p, scale)
 #' 
 #' @details 
 #' 
@@ -201,7 +204,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2){
 #' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 
 
-rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2){
+rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -223,7 +226,7 @@ rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2){
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
-    d <- ((a1 + b1*(1+p1)*(abs(x)^p1))*exp(-x*(a1+b1*(abs(x)^p1)))) / ((exp(-x*(a1 + b1* (abs(x)^p1)))+1)^2) 
+    d <- ((a1 + b1*(1+p1)*(abs(x-scale)^p1))*exp(-(x-scale)*(a1+b1*(abs(x-scale)^p1)))) / ((exp(-(x-scale)*(a1 + b1* (abs(x-scale)^p1)))+1)^2) 
     
     return(d)
   }

@@ -4,15 +4,17 @@
 \alias{dgenlog}
 \title{The Generalized logistic distribution}
 \usage{
-dgenlog(x, a, b, p)
-pgenlog(q, a, b, p)
-qgenlog(k, a, b, p)
-rgenlog(n, a, b, p)
+dgenlog(x, a, b, p, scale)
+pgenlog(q, a, b, p, scale)
+qgenlog(k, a, b, p, scale)
+rgenlog(n, a, b, p, scale)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
 
 \item{a, b, p}{parameters > 0.}
+
+\item{scale}{scale parameter}
 
 \item{k}{vector of probabilities.}
 
@@ -29,8 +31,8 @@ The \code{qgenlog()} returns values for P(X < x).
 The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
 }
 \examples{
-pdgenlog(0.5)
-curve(dgenlog(x), xlim = c(-3,3))
+pgenlog(0.5) 
+curve(dgenlog(x), xlim = c(-3,3)) 
 
 }
 \keyword{d,}
