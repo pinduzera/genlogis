@@ -1,6 +1,6 @@
 Package: genlogis
 Title: Generalized Logistic Distribution
-Version: 0.0.15
+Version: 0.17
 Authors@R: person("Eduardo", "Hellas", email = "ehellas@gmail.com", role = c("aut", "cre"))
 Description: Calculates a generalized logistic distribution proposed by Pushpa and Samwee.
 Depends: R (>= 3.0.0)
@@ -11,4 +11,4 @@ Imports: distr,
          SweaveListingUtils,
          startupmsg,
 	 sfsmisc
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000

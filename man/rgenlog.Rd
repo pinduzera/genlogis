@@ -4,17 +4,17 @@
 \alias{rgenlog}
 \title{The Generalized logistic distribution}
 \usage{
-dgenlog(x, a, b, p, scale)
-pgenlog(q, a, b, p, scale)
-qgenlog(k, a, b, p, scale)
-rgenlog(n, a, b, p, scale)
+dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
+pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
+qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
+rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
 }
 \arguments{
 \item{n}{number of observations. If length(n) > 1, the length is taken to be the number required}
 
-\item{a, b, p}{parameters > 0.}
+\item{a, b, p}{parameters >= 0, with restrictions.}
 
-\item{scale}{scale parameter}
+\item{location}{location parameter}
 
 \item{x, q}{vector of quantiles.}
 
@@ -24,11 +24,11 @@ rgenlog(n, a, b, p, scale)
 Density, distribution function, quantile function and random generation a generalized logistic distribution.
 }
 \details{
-The used distribution for this package is given by: \deqn{((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(|x|^p)))) / ((exp(-x*(a + b* (|x|^p)))+1)^2)}
-
+The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+ 
 The \code{qgenlog()} returns values for P(X < x).
 
-The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
+The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
 }
 \examples{
 pgenlog(0.5) 

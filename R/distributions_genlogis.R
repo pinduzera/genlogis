@@ -7,8 +7,8 @@
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters > 0.
-#' @param scale scale parameter
+#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param location location parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
@@ -17,20 +17,20 @@
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p, scale)
-#' pgenlog(q, a, b, p, scale)
-#' qgenlog(k, a, b, p, scale)
-#' rgenlog(n, a, b, p, scale)
+#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(|x|^p)))) / ((exp(-x*(a + b* (|x|^p)))+1)^2)}
-#' 
+#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+#'  
 #' The \code{qgenlog()} returns values for P(X < x).
 #' 
-#' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
+#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
 
-pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
+pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -49,7 +49,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
     }
   }
   
-  z <- (exp(-(q-scale)*(a+b*(abs(q-scale)^p)))+1)^(-1)
+  z <- (exp(-(q-location)*(a+b*(abs(q-location)^p)))+1)^(-1)
   
   return(z)
 }
@@ -61,8 +61,8 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters > 0.
-#' @param scale scale parameter
+#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param location location parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
@@ -71,20 +71,20 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p, scale)
-#' pgenlog(q, a, b, p, scale)
-#' qgenlog(k, a, b, p, scale)
-#' rgenlog(n, a, b, p, scale)
+#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(|x|^p)))) / ((exp(-x*(a + b* (|x|^p)))+1)^2)}
-#' 
+#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+#'  
 #' The \code{qgenlog()} returns values for P(X < x).
 #' 
-#' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
+#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
 
-dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
+dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -103,11 +103,10 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
     }
   }
   
-  d <- ((a + b*(1+p)*(abs(x-scale)^p))*exp(-(x-scale)*(a+b*(abs(x-scale)^p)))) / ((exp(-(x-scale)*(a + b* (abs(x-scale)^p)))+1)^2) 
+  d <- ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(abs(x-location)^p)))) / ((exp(-(x-location)*(a + b* (abs(x-location)^p)))+1)^2) 
   
   return(d)
 }
-
 
 #' The Generalized logistic distribution
 #'
@@ -115,8 +114,8 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters > 0.
-#' @param scale scale parameter
+#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param location location parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
@@ -125,22 +124,21 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p, scale)
-#' pgenlog(q, a, b, p, scale)
-#' qgenlog(k, a, b, p, scale)
-#' rgenlog(n, a, b, p, scale)
+#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(|x|^p)))) / ((exp(-x*(a + b* (|x|^p)))+1)^2)}
-#' 
+#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+#'  
 #' The \code{qgenlog()} returns values for P(X < x).
 #' 
-#' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
+#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
 
 
-
-qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
+qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -161,7 +159,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
-    d <- ((a1 + b1*(1+p1)*(abs(x-scale)^p1))*exp(-(x-scale)*(a1+b1*(abs(x-scale)^p1)))) / ((exp(-(x-scale)*(a1 + b1* (abs(x-scale)^p1)))+1)^2) 
+    d <- ((a1 + b1*(1+p1)*(abs(x-location)^p1))*exp(-(x-location)*(a1+b1*(abs(x-location)^p1)))) / ((exp(-(x-location)*(a1 + b1* (abs(x-location)^p1)))+1)^2) 
     
     return(d)
   }
@@ -180,8 +178,8 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters > 0.
-#' @param scale scale parameter
+#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param location location parameter
 #' 
 #' @keywords d, p, q, r
 #' @export
@@ -190,21 +188,21 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a, b, p, scale)
-#' pgenlog(q, a, b, p, scale)
-#' qgenlog(k, a, b, p, scale)
-#' rgenlog(n, a, b, p, scale)
+#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{((a + b*(1+p)*(abs(x)^p))*exp(-x*(a+b*(|x|^p)))) / ((exp(-x*(a + b* (|x|^p)))+1)^2)}
-#' 
+#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+#'  
 #' The \code{qgenlog()} returns values for P(X < x).
 #' 
-#' The default values for \code{a, b and p} are \code{sqrt(2/pi), 0.5 and 2} which produces a functions with mean 0 and variance close to 1.
+#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
 
 
-rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
+rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
@@ -226,7 +224,7 @@ rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, scale = 0){
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
-    d <- ((a1 + b1*(1+p1)*(abs(x-scale)^p1))*exp(-(x-scale)*(a1+b1*(abs(x-scale)^p1)))) / ((exp(-(x-scale)*(a1 + b1* (abs(x-scale)^p1)))+1)^2) 
+    d <- ((a1 + b1*(1+p1)*(abs(x-location)^p1))*exp(-(x-location)*(a1+b1*(abs(x-location)^p1)))) / ((exp(-(x-location)*(a1 + b1* (abs(x-location)^p1)))+1)^2) 
     
     return(d)
   }
