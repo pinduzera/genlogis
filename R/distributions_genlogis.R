@@ -17,10 +17,10 @@
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' dgenlog(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
@@ -71,10 +71,10 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' dgenlog(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
@@ -124,10 +124,10 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' dgenlog(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 
@@ -188,10 +188,10 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
 #' @usage 
-#' dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
-#' rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
+#' dgenlog(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+#' rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 #' 
 #' @details 
 #' 

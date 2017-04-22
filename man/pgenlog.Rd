@@ -4,10 +4,10 @@
 \alias{pgenlog}
 \title{The Generalized logistic distribution}
 \usage{
-dgenlog(x, a = 2/pi, b = 0.5, p = 2, location = 0)
-pgenlog(q, a = 2/pi, b = 0.5, p = 2, location = 0)
-qgenlog(k, a = 2/pi, b = 0.5, p = 2, location = 0)
-rgenlog(n, a = 2/pi, b = 0.5, p = 2, location = 0)
+dgenlog(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
+rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 }
 \arguments{
 \item{a, b, p}{parameters >= 0, with restrictions.}
