@@ -15,7 +15,7 @@
 #' 
 #' There is a small gear in the top left of the graphic where you can slide the parameters \code{@param a,b,p,location}.
 #' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
-#' If the density function is not printed it's not defined for these parameters. \cr 
+#' If the density function is not printed it is not defined for these parameters. \cr 
 #' 
 #' \code{help(dgenlog)} for parameters restrictions.\cr 
 #' 
