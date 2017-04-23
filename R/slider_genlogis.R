@@ -26,18 +26,18 @@ genlog_slider <- function(data){
 data <- as.data.frame(data)
     
 manipulate::manipulate(
-  ggplot2::ggplot(data = data, aes(x = data)) +
+  ggplot2::ggplot(data = data, ggplot2::aes(x = data)) +
     ggplot2::theme_bw()+
     ggplot2::geom_histogram(binwidth = 0.1,
-                   colour = 'black', aes(y = ..density.., fill =..count..))+
+                   colour = 'black', ggplot2::aes(y = ..density.., fill =..count..))+
     ggplot2::scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")+
-    ggplot2::stat_function(fun= dgenlog,
+    ggplot2::stat_function(fun= genlogis::dgenlog,
                   args = c(a = par_a, b = par_b, p = par_p, location = par_location),
                   color="red", size = 1) +
     ggplot2::labs(y = 'Density', x = 'X', 
          title = 'Theoretical density vs Observed histogram') +
-    ggplot2::theme(plot.title = element_text(hjust = 0.5, face = 'bold')),
-  
+    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')),
+
   par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi)),
   par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5),
   par_p = manipulate::slider(0,10, step = 0.01, initial = 2),
