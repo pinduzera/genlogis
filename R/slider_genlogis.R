@@ -13,9 +13,13 @@
 #' 
 #' @details 
 #' 
-#' There is a small gear in the top left of the graphic where you can slide the parameters \code{@param a,b,p,location}
+#' There is a small gear in the top left of the graphic where you can slide the parameters \code{@param a,b,p,location}.
 #' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+#' If the density function is not printed it's not defined for these parameters. \cr 
 #' 
+#' \code{help(dgenlog)} for parameters restrictions.\cr 
+#' 
+#' This function requires RStudio to run.\cr 
 
 genlog_slider <- function(data){
 
@@ -33,7 +37,6 @@ manipulate::manipulate(
     ggplot2::labs(y = 'Density', x = 'X', 
          title = 'Theoretical density vs Observed histogram') +
     ggplot2::theme(plot.title = element_text(hjust = 0.5, face = 'bold')),
-
   
   par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi)),
   par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5),

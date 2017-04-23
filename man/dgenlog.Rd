@@ -12,7 +12,7 @@ rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 \arguments{
 \item{x, q}{vector of quantiles.}
 
-\item{a, b, p}{parameters >= 0, with restrictions.}
+\item{a, b, p}{parameters >= 0, with restrictions.*}
 
 \item{location}{location parameter}
 
@@ -26,9 +26,15 @@ Density, distribution function, quantile function and random generation a genera
 \details{
 The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
  
-The \code{qgenlog()} returns values for P(X < x).
+The \code{qgenlog()} returns values for P(X < x).\cr 
 
-The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
+The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+
+*Restrictions:\cr 
+
+If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
+
+The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
 }
 \examples{
 pgenlog(0.5) 

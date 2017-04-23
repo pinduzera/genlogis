@@ -7,7 +7,7 @@
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
 #' 
 #' @keywords d, p, q, r
@@ -26,27 +26,41 @@
 #' 
 #' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
 #'  
-#' The \code{qgenlog()} returns values for P(X < x).
+#' The \code{qgenlog()} returns values for P(X < x).\cr 
 #' 
-#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
+#' The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+#' 
+#' *Restrictions:\cr 
+#' 
+#' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
+#' 
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr 
+
 
 pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
-      stop('The argument "a" must be positive')
+      stop('The argument "a" must be positive.')
     }
   }
   if(!missing(a)){
     if(b < 0){
       
-      stop('The argument "b" must be positive')
+      stop('The argument "b" must be positive.')
     }
   }
   if(!missing(a)){
     if(p < 0){
-      stop('The argument "p" must be positive')
+      stop('The argument "p" must be positive.')
     }
+  }
+  
+  if(p == 0 && b > 0 && a > 0){
+    stop('If "p" equals to 0, "b" or "a" must be 0 otherwise there is identifiability problem.')
+  }  
+  if(b == 0 && a == 0){
+    stop('The distribution is not defined for "a" and "b" equal to 0 simultaneously.')
   }
   
   z <- (exp(-(q-location)*(a+b*(abs(q-location)^p)))+1)^(-1)
@@ -61,7 +75,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
 #' 
 #' @keywords d, p, q, r
@@ -80,28 +94,42 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
 #'  
-#' The \code{qgenlog()} returns values for P(X < x).
+#' The \code{qgenlog()} returns values for P(X < x).\cr 
 #' 
-#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
+#' The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+#' 
+#' *Restrictions:\cr 
+#' 
+#' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
+#' 
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
+
 
 dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
-      stop('The argument "a" must be positive')
+      stop('The argument "a" must be positive.')
     }
   }
   if(!missing(a)){
     if(b < 0){
       
-      stop('The argument "b" must be positive')
+      stop('The argument "b" must be positive.')
     }
   }
   if(!missing(a)){
     if(p < 0){
-      stop('The argument "p" must be positive')
+      stop('The argument "p" must be positive.')
     }
   }
+
+  if(p == 0 && b > 0 && a > 0){
+      stop('If "p" equals to 0, "b" or "a" must be 0 otherwise there is identifiability problem.')
+  }  
+  if(b == 0 && a == 0){
+    stop('The distribution is not defined for "a" and "b" equal to 0 simultaneously.')
+  } 
   
   d <- ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(abs(x-location)^p)))) / ((exp(-(x-location)*(a + b* (abs(x-location)^p)))+1)^2) 
   
@@ -114,7 +142,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
 #' 
 #' @keywords d, p, q, r
@@ -133,28 +161,41 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
 #'  
-#' The \code{qgenlog()} returns values for P(X < x).
+#' The \code{qgenlog()} returns values for P(X < x).\cr 
 #' 
-#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
+#' The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+#' 
+#' *Restrictions:\cr 
+#' 
+#' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
+#' 
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
 
 
 qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
-      stop('The argument "a" must be positive')
+      stop('The argument "a" must be positive.')
     }
   }
   if(!missing(a)){
     if(b < 0){
       
-      stop('The argument "b" must be positive')
+      stop('The argument "b" must be positive.')
     }
   }
   if(!missing(a)){
     if(p < 0){
-      stop('The argument "p" must be positive')
+      stop('The argument "p" must be positive.')
     }
+  }
+  
+  if(p == 0 && b > 0 && a > 0){
+    stop('If "p" equals to 0, "b" or "a" must be 0 otherwise there is identifiability problem.')
+  }  
+  if(b == 0 && a == 0){
+    stop('The distribution is not defined for "a" and "b" equal to 0 simultaneously.')
   }
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
@@ -178,7 +219,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters >= 0, with restrictions.
+#' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
 #' 
 #' @keywords d, p, q, r
@@ -197,28 +238,41 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
 #'  
-#' The \code{qgenlog()} returns values for P(X < x).
+#' The \code{qgenlog()} returns values for P(X < x).\cr 
 #' 
-#' The default values for \code{@param a,b,p,location} produces a function with mean 0 and variance close to 1.
+#' The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+#' 
+#' *Restrictions:\cr 
+#' 
+#' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
+#' 
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
 
 
 rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
   
   if(!missing(a)){
     if(a < 0){
-      stop('The argument "a" must be positive')
+      stop('The argument "a" must be positive.')
     }
   }
   if(!missing(a)){
     if(b < 0){
       
-      stop('The argument "b" must be positive')
+      stop('The argument "b" must be positive.')
     }
   }
   if(!missing(a)){
     if(p < 0){
-      stop('The argument "p" must be positive')
+      stop('The argument "p" must be positive.')
     }
+  }
+  
+  if(p == 0 && b > 0 && a > 0){
+    stop('If "p" equals to 0, "b" or "a" must be 0 otherwise there is identifiability problem.')
+  }  
+  if(b == 0 && a == 0){
+    stop('The distribution is not defined for "a" and "b" equal to 0 simultaneously.')
   }
   
   
