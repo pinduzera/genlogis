@@ -13,4 +13,5 @@ Imports: distr,
 	 sfsmisc,
   	 ggplot2,
 	 manipulate,
+	 gtable,
 RoxygenNote: 6.0.1.9000
