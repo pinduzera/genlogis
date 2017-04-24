@@ -23,7 +23,6 @@ This function requires RStudio to run.\cr
 }
 \examples{
 genlog_slider(rgenlog(1000))
-
 }
 \keyword{genlogis}
 \keyword{slieder,}

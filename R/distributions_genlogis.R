@@ -9,8 +9,8 @@
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' 
 #' @keywords d, p, q, r
+#' 
 #' @export
 #' @examples 
 #' pgenlog(0.5) 
@@ -77,8 +77,8 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' 
 #' @keywords d, p, q, r
+#' 
 #' @export
 #' @examples 
 #' pgenlog(0.5) 
@@ -102,7 +102,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
 #' 
-#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr 
 
 
 dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
@@ -144,8 +144,8 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' 
 #' @keywords d, p, q, r
+#' 
 #' @export
 #' @examples 
 #' pgenlog(0.5) 
@@ -169,7 +169,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
 #' 
-#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr 
 
 
 qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
@@ -221,8 +221,8 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' 
 #' @keywords d, p, q, r
+#' 
 #' @export
 #' @examples 
 #' pgenlog(0.5) 
@@ -246,7 +246,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
 #' 
-#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr
+#' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr 
 
 
 rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){

@@ -4,10 +4,10 @@
 #' @param data vector of data to compare.
 #' 
 #' @keywords slieder, genlogis
+#' 
 #' @export
 #' @examples 
 #' genlog_slider(rgenlog(1000))
-#' 
 #' @usage 
 #' genlog_slider(data)
 #' 
