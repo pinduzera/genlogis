@@ -42,6 +42,7 @@ curve(dgenlog(x), xlim = c(-3,3))
 
 }
 \keyword{d,}
+\keyword{genlogis}
 \keyword{p,}
 \keyword{q,}
-\keyword{r}
+\keyword{r,}

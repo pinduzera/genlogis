@@ -9,8 +9,8 @@
 #' 
 #' @export
 #' @examples 
-#' datas <- rgenlog(10000, 1,2,1, 0)
-#' genlog_mle(c(.7,1.6, .8, 0),datas) 
+#' datas <- rgenlog(10000, 1.5,2,2, 0)
+#' genlog_mle(c(.5,1.6, 1.5, 0),datas)
 #' 
 #' @usage 
 #' genlog_mle(parameters, data)
@@ -26,58 +26,8 @@
 #' \code{help(dgenlog)} for parameters restrictions.\cr
 
 
+
 genlog_mle <- function(parameters, data){
-
-genlogis.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0), x){
-  
-  if(length(param) < 3 | length(param) > 4 ){
-    stop('Incorrect number of parameters: param = c(a,b,p,location)')
-  }
-  
-  if(length(param) == 3){
-    warning('Location parameter is set to 0')
-    location = 0
-  }
-  
-  if(length(param) == 4){
-    location = param[4]
-  }
-  
-  a = param[1]
-  b = param[2]
-  p = param[3]
-  
-  if(!missing(a)){
-    if(a < 0){
-      stop('The argument "a" must be positive.')
-    }
-  }
-  if(!missing(a)){
-    if(b < 0){
-      
-      stop('The argument "b" must be positive.')
-    }
-  }
-  if(!missing(a)){
-    if(p < 0){
-      stop('The argument "p" must be positive.')
-    }
-  }
-  
-  if(p == 0 && b > 0 && a > 0){
-    stop('If "p" equals to 0, "b" or "a" must be 
-         0 otherwise there is identifiability problem.')
-  }  
-  if(b == 0 && a == 0){
-    stop('The distribution is not defined for "a" 
-         and "b" equal to 0 simultaneously.')
-  }
-
-  z <- sum(log((a+b*(1+p)*abs((x-location))^p ) * exp(-((x-location)*(a+b*abs((x-location))^p)))) -
-     log((exp(-((x-location)*(a+b*abs((x-location))^p))) + 1)^2))
-    
-  return(-z)
-}
 
 
 op <- optim(par=parameters, fn = genlogis.loglikehood, x=data,
@@ -87,3 +37,4 @@ op <- optim(par=parameters, fn = genlogis.loglikehood, x=data,
 return(op)
 
 }
+

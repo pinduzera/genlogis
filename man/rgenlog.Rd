@@ -24,11 +24,14 @@ rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 Density, distribution function, quantile function and random generation a generalized logistic distribution.
 }
 \details{
-The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+The used distribution for this package is given by: 
+\deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) /
+ ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
  
 The \code{qgenlog()} returns values for P(X < x).\cr 
 
-The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+The default values for \code{a, b, p and location} produces 
+a function with mean 0 and variance close to 1.\cr 
 
 *Restrictions:\cr 
 
@@ -42,6 +45,7 @@ curve(dgenlog(x), xlim = c(-3,3))
 
 }
 \keyword{d,}
+\keyword{genlogis}
 \keyword{p,}
 \keyword{q,}
-\keyword{r}
+\keyword{r,}

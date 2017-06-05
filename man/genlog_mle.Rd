@@ -26,8 +26,8 @@ The used distribution for this package is given by:
 \code{help(dgenlog)} for parameters restrictions.\cr
 }
 \examples{
-datas <- rgenlog(10000, 1,2,1, 0)
-genlog_mle(c(.7,1.6, .8, 0),datas) 
+datas <- rgenlog(10000, 1.5,2,2, 0)
+genlog_mle(c(.5,1.6, 1.5, 0),datas)
 
 }
 \keyword{d,}

@@ -9,7 +9,7 @@
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' @keywords d, p, q, r
+#' @keywords d, p, q, r, genlogis
 #' 
 #' @export
 #' @examples 
@@ -38,19 +38,19 @@
 
 
 pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
-  
+
   if(!missing(a)){
     if(a < 0){
       stop('The argument "a" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(b)){
     if(b < 0){
       
       stop('The argument "b" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(p)){
     if(p < 0){
       stop('The argument "p" must be positive.')
     }
@@ -77,7 +77,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' @keywords d, p, q, r
+#' @keywords d, p, q, r, genlogis
 #' 
 #' @export
 #' @examples 
@@ -112,13 +112,13 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
       stop('The argument "a" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(b)){
     if(b < 0){
       
       stop('The argument "b" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(p)){
     if(p < 0){
       stop('The argument "p" must be positive.')
     }
@@ -144,7 +144,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' @keywords d, p, q, r
+#' @keywords d, p, q, r, genlogis
 #' 
 #' @export
 #' @examples 
@@ -179,13 +179,13 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
       stop('The argument "a" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(b)){
     if(b < 0){
       
       stop('The argument "b" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(p)){
     if(p < 0){
       stop('The argument "p" must be positive.')
     }
@@ -221,7 +221,7 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
 #' @param a,b,p  parameters >= 0, with restrictions.*
 #' @param location location parameter
-#' @keywords d, p, q, r
+#' @keywords d, p, q, r, genlogis
 #' 
 #' @export
 #' @examples 
@@ -236,11 +236,14 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+#' The used distribution for this package is given by: 
+#' \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) /
+#'  ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
 #'  
 #' The \code{qgenlog()} returns values for P(X < x).\cr 
 #' 
-#' The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
+#' The default values for \code{a, b, p and location} produces 
+#' a function with mean 0 and variance close to 1.\cr 
 #' 
 #' *Restrictions:\cr 
 #' 
@@ -256,13 +259,13 @@ rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0){
       stop('The argument "a" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(b)){
     if(b < 0){
       
       stop('The argument "b" must be positive.')
     }
   }
-  if(!missing(a)){
+  if(!missing(p)){
     if(p < 0){
       stop('The argument "p" must be positive.')
     }

@@ -3,7 +3,7 @@
 #' Make a generalized logistic distribution slider to compare histogram with theoretical distribution
 #' @param data vector of data to compare.
 #' 
-#' @keywords slieder, genlogis
+#' @keywords slider, genlogis
 #' 
 #' @export
 #' @examples 

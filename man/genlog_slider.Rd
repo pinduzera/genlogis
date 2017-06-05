@@ -25,4 +25,4 @@ This function requires RStudio to run.\cr
 genlog_slider(rgenlog(1000))
 }
 \keyword{genlogis}
-\keyword{slieder,}
+\keyword{slider,}
