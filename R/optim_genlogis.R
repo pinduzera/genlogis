@@ -31,9 +31,10 @@ genlog_mle <- function(parameters, data){
 
 
 op <- optim(par=parameters, fn = genlogis.loglikehood, x=data,
-      lower = c(1e-20,1e-20,1e-20,-Inf), upper = c(Inf,Inf,Inf,Inf),
+      lower = c(1e-10,1e-10,1e-10,-Inf), upper = c(Inf,Inf,Inf,Inf),
       method = 'L-BFGS-B') 
 
 return(op)
 
 }
+
