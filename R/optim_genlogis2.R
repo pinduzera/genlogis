@@ -3,7 +3,7 @@
 #' Maximum likehood estimation of parameters for a generalized logistic distribution.
 #' 
 #' @param parameters Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, location)},
-#'  \code{location} can be omioped and will be equaled to 0.
+#'  \code{location} can be omioped and will be set to 0.
 #' @param data This is the the data to be utilized for the estimation
 #' @param alpha type 1 error parameter for confidente interval
 #' @keywords d, p, q, r, genlogis

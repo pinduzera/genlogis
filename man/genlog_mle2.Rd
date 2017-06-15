@@ -8,7 +8,7 @@ genlog_mle2(parameters, data, alpha = 0.05)
 }
 \arguments{
 \item{parameters}{Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, location)},
-\code{location} can be omioped and will be equaled to 0.}
+\code{location} can be omioped and will be set to 0.}
 
 \item{data}{This is the the data to be utilized for the estimation}
 

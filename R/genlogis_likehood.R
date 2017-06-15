@@ -7,7 +7,7 @@ genlogis.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0), x){
   }
   
   if(length(param) == 3){
-    warning('Location parameter is set to 0')
+    #warning('Location parameter is set to 0')
     location = 0
   }
   

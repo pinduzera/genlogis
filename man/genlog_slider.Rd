@@ -4,10 +4,17 @@
 \alias{genlog_slider}
 \title{Slider for generalized logistic}
 \usage{
-genlog_slider(data)
+genlog_slider(data, return_var = NULL)
 }
 \arguments{
 \item{data}{vector of data to compare.}
+
+\item{return_var}{a char string to name where parameters are assigned}
+}
+\value{
+The function plots a interactive graphic in RStudio Viewer panel. \cr
+Also, the parameters \code{a, b, p} and \code{location} can be returned to 
+\code{return_var} if asked in the graphic.
 }
 \description{
 Make a generalized logistic distribution slider to compare histogram with theoretical distribution
@@ -19,10 +26,18 @@ If the density function is not printed it is not defined for these parameters. \
 
 \code{help(dgenlog)} for parameters restrictions.\cr 
 
-This function requires RStudio to run.\cr
+This function requires RStudio to run.
+\cr
 }
 \examples{
-genlog_slider(rgenlog(1000))
+datas <- rgenlog(1000)
+genlog_slider(datas, return_var = 'parameters')
+
+}
+\references{
+RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
+Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 }
 \keyword{genlogis}
 \keyword{slider,}

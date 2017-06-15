@@ -20,18 +20,22 @@ rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, location = 0)
 
 \item{k}{vector of probabilities.}
 }
+\value{
+\code{dgenlogis} gives the density, \code{pgenlogis} gives the distribution function, 
+\code{qgenlogis} gives the quantile function, and \code{rgenlogis} generates random deviates.\cr
+ 
+ The length of the result is determined by \code{n} for \code{rgenlogis}, and is the maximum of the lengths 
+ of the numerical arguments for the other functions.
+}
 \description{
 Density, distribution function, quantile function and random generation a generalized logistic distribution.
 }
 \details{
-The used distribution for this package is given by: 
-\deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) /
- ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
  
 The \code{qgenlog()} returns values for P(X < x).\cr 
 
-The default values for \code{a, b, p and location} produces 
-a function with mean 0 and variance close to 1.\cr 
+The default values for \code{a, b, p and location} produces a function with mean 0 and variance close to 1.\cr 
 
 *Restrictions:\cr 
 
@@ -43,6 +47,11 @@ The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneou
 pgenlog(0.5) 
 curve(dgenlog(x), xlim = c(-3,3)) 
 
+}
+\references{
+RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
+Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 }
 \keyword{d,}
 \keyword{genlogis}
