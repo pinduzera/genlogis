@@ -4,8 +4,9 @@
 #' 
 #' @param parameters Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, location)},
 #'  \code{location} can be omitted and will be set to 0.
-#' @param data This is the the data to be utilized for the estimation
-#' @param alpha Type I error given to calculate confidence intervals
+#' @param data This is the the data to be utilized for the estimation.
+#' @param hessian logical value that returns hessian, also returns the parameters estimation's confidence interval.
+#' @param alpha Type I error given to calculate confidence intervals, used when \code{hessian = T}.
 #' @keywords d, p, q, r genlogis
 #' 
 #' @export
@@ -21,7 +22,7 @@
 #' genlog_mle(parameters,datas)
 #' 
 #' @usage 
-#' genlog_mle(parameters, data, alpha = 0.05)
+#' genlog_mle(parameters, data, hessian = F, alpha = 0.05)
 #' 
 #' @details 
 #' Maximum likehood estimation of parameters for the distribution proposed in this package.\cr
@@ -78,12 +79,13 @@
 #' Computer Science, Northwestern University, United States of America, mar. 1994.
 
 
-genlog_mle <- function(parameters, data, alpha = 0.05){
+genlog_mle <- function(parameters, data, hessian = F, alpha = 0.05){
   
   op <- optim(par=parameters, fn = genlogis.loglikehood, x=data,
               lower = c(0.01,0.01,0.01, -Inf), upper = c(Inf,Inf,Inf,Inf),
-              method = 'L-BFGS-B', hessian = T) 
+              method = 'L-BFGS-B', hessian = hessian) 
   
+  if(hessian == T){
   fisher_info <- solve(op$hessian)
   var_matrix <- diag(fisher_info)
   var_matrix <- sqrt(var_matrix)
@@ -91,7 +93,10 @@ genlog_mle <- function(parameters, data, alpha = 0.05){
   lower <- op$par - qnorm(1-alpha) * var_matrix
   interval <- data.frame(value=op$par, lower=lower, upper=upper)
   op$bounds <-  as.matrix(interval)
+  }
   
   return(op)
   
 }
+
+

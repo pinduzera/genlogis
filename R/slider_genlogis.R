@@ -44,9 +44,9 @@ genlog_slider <- function(data, return_var = NULL){
     if(returnval){
       if(!is.null(return_var)){
         assign(paste(return_var) ,manipulate::manipulatorGetState("parameters"), envir = .GlobalEnv)
-        message(paste0('Parameters returned to object \'', return_var, '\''))}
+        message(paste0('Parameters returned to the object \'', return_var, '\''))}
       else{
-        message('No variable set to receive parameters')
+        message('No object set to receive the parameters')
       }
     }
     

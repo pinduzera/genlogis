@@ -4,15 +4,17 @@
 \alias{genlog_mle}
 \title{Optimization for a generalized logistic distribution}
 \usage{
-genlog_mle(parameters, data, alpha = 0.05)
+genlog_mle(parameters, data, hessian = F, alpha = 0.05)
 }
 \arguments{
 \item{parameters}{Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, location)},
 \code{location} can be omitted and will be set to 0.}
 
-\item{data}{This is the the data to be utilized for the estimation}
+\item{data}{This is the the data to be utilized for the estimation.}
 
-\item{alpha}{Type I error given to calculate confidence intervals}
+\item{hessian}{logical value that returns hessian, also returns the parameters estimation's confidence interval.}
+
+\item{alpha}{Type I error given to calculate confidence intervals, used when \code{hessian = T}.}
 }
 \value{
 Return a list of components as \code{optim} \(for more information, check this function\)
