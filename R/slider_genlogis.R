@@ -3,6 +3,7 @@
 #' Make a generalized logistic distribution slider to compare histogram with theoretical distribution
 #' @param data vector of data to compare.
 #' @param return_var a char string to name where parameters are assigned
+#' @param loc_range a number to setup the minimum and maximum range value of the location parameter
 #' @keywords slider, genlogis
 #' 
 #' @export
@@ -11,7 +12,7 @@
 #' genlog_slider(datas, return_var = 'parameters')
 #' 
 #' @usage 
-#' genlog_slider(data, return_var = NULL)
+#' genlog_slider(data, return_var = NULL, loc_range = 10)
 #' 
 #' @return 
 #' The function plots a interactive graphic in RStudio Viewer panel. \cr
@@ -34,7 +35,7 @@
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 #' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 
-genlog_slider <- function(data, return_var = NULL){
+genlog_slider <- function(data, return_var = NULL, loc_range = 10){
   
   data <- as.data.frame(data)
   
@@ -67,7 +68,7 @@ genlog_slider <- function(data, return_var = NULL){
   par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi), label = 'Parameter a'),
   par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5, label = 'Parameter b'),
   par_p = manipulate::slider(0,10, step = 0.01, initial = 2, label = 'Parameter p'),
-  par_location = manipulate::slider(-10,10, step = 0.01, initial = 0, label = 'Location parameter'),
+  par_location = manipulate::slider(-loc_range,loc_range, step = 0.01, initial = 0, label = 'Location parameter'),
   binw = manipulate::slider(0.1,10, step = 0.1, initial = 0.1, label = 'Binwidth') ,
   
   returnval = manipulate::button("Return parameters to variable")

@@ -4,12 +4,14 @@
 \alias{genlog_slider}
 \title{Slider for generalized logistic}
 \usage{
-genlog_slider(data, return_var = NULL)
+genlog_slider(data, return_var = NULL, loc_range = 10)
 }
 \arguments{
 \item{data}{vector of data to compare.}
 
 \item{return_var}{a char string to name where parameters are assigned}
+
+\item{loc_range}{a number to setup the minimum and maximum range value of the location parameter}
 }
 \value{
 The function plots a interactive graphic in RStudio Viewer panel. \cr
