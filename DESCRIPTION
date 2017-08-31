@@ -3,7 +3,7 @@ Title: Generalized Logistic Distribution
 Version: 0.27
 Authors@R: person("Eduardo", "Hellas", email = "ehellas@gmail.com", role = c("aut", "cre"))
 Description: Works with a generalized logistic distribution proposed by Rathie and Samwee.
-Depends: R (>= 3.2.0), ggplot2
+Depends: R (>= 3.2.0), ggplot2, foreach
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
@@ -20,5 +20,4 @@ Imports: distr,
 	 manipulate,
 	 labeling,
 	 doSNOW,
-	 foreach
 RoxygenNote: 6.0.1.9000
