@@ -2,6 +2,7 @@
 
 export(dgenlog)
 export(genlog_mle)
+export(genlog_simu)
 export(genlog_slider)
 export(pgenlog)
 export(qgenlog)

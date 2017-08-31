@@ -1,6 +1,6 @@
 Package: genlogis
 Title: Generalized Logistic Distribution
-Version: 0.26
+Version: 0.27
 Authors@R: person("Eduardo", "Hellas", email = "ehellas@gmail.com", role = c("aut", "cre"))
 Description: Works with a generalized logistic distribution proposed by Rathie and Samwee.
 Depends: R (>= 3.2.0), ggplot2
@@ -18,5 +18,7 @@ Imports: distr,
 	 munsell,
 	 colorspace,
 	 manipulate,
-	 labeling
+	 labeling,
+	 doSNOW,
+	 foreach
 RoxygenNote: 6.0.1.9000
