@@ -8,11 +8,11 @@ genlog_simu(real.par, init.par, sample.size = 100,
             k = 1000, seed = 555, threads = 1)
 }
 \arguments{
-\item{real.par}{the real parameters value of the distribution wich the random sample will be taken. It has to be a vector os length 4,
-the parameters are the values of \code{c(a, b, p, location)} as listed in \code{rgenlog}, 
-\code{location} can be omitted and will be set to 0. There are no default values.}
+\item{real.par}{the real parameters value of the distribution wich the random sample will be taken. It has to be a vector of length 4,
+the parameters are the values of \code{c(a, b, p, mu)} as listed in \code{rgenlog}, 
+\code{mu} can be omitted and will be set to 0. There are no default values.}
 
-\item{init.par}{Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, location)}.
+\item{init.par}{Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, mu)}.
 Can be an object returned by \code{genlog_slider}. There are no default values.}
 
 \item{sample.size}{the sample size to be taken in each \code{k} simulation.}
@@ -27,13 +27,11 @@ number is higher than the available the maximum allowed will be used.}
 \value{
 It returns a data.frame with \code{k} rows (each simulation) and 7 columns with the following information:
 \cr
-\code{a, b,  p} and \code{location} are estimations using maximum likelihood estimation, for more info \code{help(genlogis_mle)}  
+\code{a, b,  p} and \code{mu} are estimations using maximum likelihood estimation, for more info \code{help(genlogis_mle)}  
 \cr
 \code{sample.size} The sample size used for each \code{k} simulation.
 \cr
 \code{convergence} The estimation's convergence status.
-\cr
-\code{conv_message} Any aditional convergece status message.
 \cr
 }
 \description{
@@ -41,10 +39,11 @@ Creating a simulation of the generalized logistic distribution maximum likelihoo
 with parallelized processing code using the \code{foreach} package.
 }
 \details{
-The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
  For more about the distribution use \code{help(dgenlog)}.
 }
 \examples{
+## Not run: 
 genlog_simu(real.par = c(0.3, 0.9, 1.5, 0.0), init.par = c(0.9, 0.3, 0.2, 0.0), 
             sample.size = 100, k = 100, threads = 4, seed = 200) 
 
@@ -57,11 +56,4 @@ Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 WETSON, Steve, \emph{Using the foreach Package. Oct. 2015.
 Consulted on August 2017 at https://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf}
 }
-\keyword{computing,}
-\keyword{genlog_simu}
-\keyword{likelihood,}
-\keyword{maximum}
-\keyword{mle,}
-\keyword{parallel,}
-\keyword{simulating,}
-\keyword{simulation,}
+\keyword{genlogis}

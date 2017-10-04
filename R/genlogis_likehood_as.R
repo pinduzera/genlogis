@@ -1,23 +1,17 @@
-### this is a function of internal use for MLE in optim_mle() function
+### this is a function of internal use for MLE in optim_mle_as() function
 
-genlogis.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0), x){
+genlogis.as.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
   
-  if(length(param) < 3 | length(param) > 4 ){
-    stop('Incorrect number of parameters: param = c(a, b, p, mu)')
+  if(length(param) != 5){
+    stop('Incorrect number of parameters: param = c(a, b, p, mu, skew)')
   }
   
-  if(length(param) == 3){
-    #warning('Location parameter is set to 0')
-    location = 0
-  }
+  a <- param[1]
+  b <- param[2]
+  p <- param[3]
+  mu <- param[4]
+  skew <- param[5]
   
-  if(length(param) == 4){
-    location = param[4]
-  }
-  
-  a = param[1]
-  b = param[2]
-  p = param[3]
   
   if(!missing(a)){
     if(a < 0){
@@ -45,7 +39,11 @@ genlogis.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0), x){
          and "b" equal to 0 simultaneously.')
   }
   
-  z <- -sum(log(dgenlog(a=param[1],b=param[2],p=param[3],mu=param[4],x)))
+  if(skew > 1 | skew < -1){
+    stop('The skew parameter must be in the interval (-1,1).')
+  }
+  
+  z <- -sum(log(dgenlog_as(x, a, b, p, mu, skew)))
   # z <- sum(log((a+b*(1+p)*abs((x-location))^p ) * exp(-((x-location)*(a+b*abs((x-location))^p))))) -
   #            sum(2*log(exp(-((x-location)*(a+b*abs((x-location))^p))) + 1))
   # if(!is.finite(z)){
@@ -53,5 +51,5 @@ genlogis.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0), x){
   # }
   
   return(z)
-}
+  }
 

@@ -7,8 +7,8 @@
 genlog_mle(parameters, data, hessian = F, alpha = 0.05)
 }
 \arguments{
-\item{parameters}{Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, location)},
-\code{location} can be omitted and will be set to 0.}
+\item{parameters}{Initial values for the parameters to be optimized over in the following order \code{c(a, b, p, mu)},
+\code{mu} can be omitted and will be set to 0.}
 
 \item{data}{This is the the data to be utilized for the estimation.}
 
@@ -17,7 +17,7 @@ genlog_mle(parameters, data, hessian = F, alpha = 0.05)
 \item{alpha}{Type I error given to calculate confidence intervals, used when \code{hessian = T}.}
 }
 \value{
-Return a list of components as \code{optim} \(for more information, check this function\)
+Return a list of components as \code{constrOptim} \(for more information, check this function\)
  with some extras: \cr
  
 \code{par} The best set of parameters found. 
@@ -32,7 +32,7 @@ compute the Hessian, and any calls to likelihood function to compute a
 finite-difference approximation to the gradient.\cr
 
 \code{convergence} An integer code. 0 indicates successful completion, 1 indicates that 
-the iteration limit \code{maxit} had been reached. For more errors \code{help(optim)}.
+the iteration limit \code{maxit} had been reached. For more errors \code{help(constrOptim)}.
 \cr
 
 \code{message} A character string giving any additional information returned by the optimizer,
@@ -52,16 +52,14 @@ Maximum likehood estimation of parameters for a generalized logistic distributio
 }
 \details{
 Maximum likehood estimation of parameters for the distribution proposed in this package.\cr
-This function is an application of \code{optim} as a particular case needed for this 
-distribution using the method "\code{L-BFGS-B}".  \cr
-For more information of the output check \code{help(optim)}.\cr
+This function is an application of \code{constrOptim} as a particular case needed for this 
+distribution using the method "\code{BFGS}".  \cr
+For more information of the output check \code{help(constrOptim)}.\cr
 
 The used distribution for this package is given by: 
-\deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+\deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
 
 \code{help(dgenlog)} for parameters restrictions.\cr
-Despite de function is defined from parameter values > 0, the lower bound for optimization
-is set to 0.01 otherwise there is a convergence problem, specially for the hessian matrix.
 }
 \examples{
 
@@ -80,12 +78,9 @@ RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic dist
 approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 
+Azzalini, A.. "A class of distributions which includes the normal ones". Scandinavian Journal of Statistics, 1985.
 Byrd, R. H., Lu, P., Nocedal, J. and Zhu, C. \emph{A limited memory algorithm for bound
 constrained optimization}, Technical Report NAM-08, Dept. of Elecrtrical Engineering and
 Computer Science, Northwestern University, United States of America, mar. 1994.
 }
-\keyword{d,}
 \keyword{genlogis}
-\keyword{p,}
-\keyword{q,}
-\keyword{r}

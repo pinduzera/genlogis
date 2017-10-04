@@ -1,23 +1,15 @@
 Package: genlogis
 Title: Generalized Logistic Distribution
-Version: 0.27
+Version: 0.3
 Authors@R: person("Eduardo", "Hellas", email = "ehellas@gmail.com", role = c("aut", "cre"))
 Description: Works with a generalized logistic distribution proposed by Rathie and Samwee.
-Depends: R (>= 3.2.0), ggplot2, foreach
-License: GPL-2
+Depends: R (>= 3.2.0), ggplot2, foreach, stats
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: distr, 
-         SweaveListingUtils,
-         startupmsg,
-	 sfsmisc,
-  	 ggplot2,
 	 manipulate,
-	 gtable,
-	 scales,
-	 munsell,
-	 colorspace,
-	 manipulate,
-	 labeling,
 	 doSNOW,
+	 snow
+SystemRequirements: RStudio - http://www.rstudio.com/products/rstudio/
 RoxygenNote: 6.0.1.9000

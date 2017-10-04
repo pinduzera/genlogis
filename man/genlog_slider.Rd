@@ -4,26 +4,28 @@
 \alias{genlog_slider}
 \title{Slider for generalized logistic}
 \usage{
-genlog_slider(data, return_var = NULL, loc_range = 10)
+genlog_slider(data, return_var = NULL, loc_range = 10, skew = F)
 }
 \arguments{
 \item{data}{vector of data to compare.}
 
 \item{return_var}{a char string to name where parameters are assigned}
 
-\item{loc_range}{a number to setup the minimum and maximum range value of the location parameter}
+\item{loc_range}{a number to setup the minimum and maximum range value of the mu parameter}
+
+\item{skew}{logical, if \code{TRUE}, a model with skewness should be used.}
 }
 \value{
 The function plots a interactive graphic in RStudio Viewer panel. \cr
-Also, the parameters \code{a, b, p} and \code{location} can be returned to 
+Also, the parameters \code{a, b, p} and \code{mu} can be returned to 
 \code{return_var} if asked in the graphic.
 }
 \description{
 Make a generalized logistic distribution slider to compare histogram with theoretical distribution
 }
 \details{
-There is a small gear in the top left of the graphic where you can slide the parameters \code{@param a,b,p,location}.
-The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-location)^p))*exp(-(x-location)*(a+b*(|x-location|^p)))) / ((exp(-(x-location)*(a + b* (|x-location|^p)))+1)^2)}
+There is a small gear in the top left of the graphic where you can slide the parameters \code{@param a,b,p,mu}.
+The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
 If the density function is not printed it is not defined for these parameters. \cr 
 
 \code{help(dgenlog)} for parameters restrictions.\cr 
@@ -42,4 +44,3 @@ approximation to normal distribution}, Technical Research Report in Statistics, 
 Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 }
 \keyword{genlogis}
-\keyword{slider,}
