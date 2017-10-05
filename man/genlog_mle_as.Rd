@@ -33,11 +33,19 @@ finite-difference approximation to the gradient.\cr
 \code{convergence} An integer code. 0 indicates successful completion, 1 indicates that 
 the iteration limit \code{maxit} had been reached. For more errors \code{help(constrOptim)}.
 \cr
-
+ 
 \code{message} A character string giving any additional information returned by the optimizer,
  or NULL.
  \cr
  
+\code{outer.iterations} gives the number of outer iterations (calls to \code{optim}).
+ \cr
+ 
+ \code{barrier.value} giving the value of the barrier function at the optimum.
+ \cr
+ 
+For \code{hessian = T} add:
+   
 \code{hessian} A symmetric matrix giving an estimate of the (negative) Hessian at the solution found. 
 Note that this is the Hessian of the unconstrained problem even if the box 
 constraints are active.
@@ -60,7 +68,7 @@ The used distribution for this package is given by:
    ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
    ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }
 
-\code{help(dgenlog)} for parameters restrictions.\cr
+\code{help(dgenlog_as)} for parameters restrictions.\cr
 }
 \examples{
 
@@ -82,5 +90,7 @@ Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 Byrd, R. H., Lu, P., Nocedal, J. and Zhu, C. \emph{A limited memory algorithm for bound
 constrained optimization}, Technical Report NAM-08, Dept. of Elecrtrical Engineering and
 Computer Science, Northwestern University, United States of America, mar. 1994.
+
+Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
 }
 \keyword{genlogis}

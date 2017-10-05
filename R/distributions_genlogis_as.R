@@ -17,6 +17,10 @@
 #' pgenlog_as(0.5) 
 #' curve(dgenlog_as(x), xlim = c(-3,3)) 
 #' 
+#' rgenlog_as(100) 
+#' 
+#' qgenlog_as(0.95)
+#' 
 #' @usage 
 #' pgenlog_as(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = .5)
 #' 
@@ -49,7 +53,7 @@
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 #' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 #' 
-#' Azzalini, A.. "A class of distributions which includes the normal ones". Scandinavian Journal of Statistics, 1985.
+#' Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
 
 pgenlog_as <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = .5){
   

@@ -4,7 +4,7 @@ Version: 0.3
 Authors@R: person("Eduardo", "Hellas", email = "ehellas@gmail.com", role = c("aut", "cre"))
 Description: Works with a generalized logistic distribution proposed by Rathie and Samwee.
 Depends: R (>= 3.2.0), ggplot2, foreach, stats
-License: MIT + file LICENSE
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: distr, 

@@ -58,12 +58,16 @@ The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneou
 pgenlog_as(0.5) 
 curve(dgenlog_as(x), xlim = c(-3,3)) 
 
+rgenlog_as(100) 
+
+qgenlog_as(0.95)
+
 }
 \references{
 RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
 approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 
-Azzalini, A.. "A class of distributions which includes the normal ones". Scandinavian Journal of Statistics, 1985.
+Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
 }
 \keyword{genlogis}

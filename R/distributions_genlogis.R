@@ -16,6 +16,10 @@
 #' pgenlog(0.5) 
 #' curve(dgenlog(x), xlim = c(-3,3)) 
 #' 
+#' rgenlog(100) 
+#' 
+#' qgenlog(0.95)
+#' 
 #' @usage 
 #' pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
 #' 

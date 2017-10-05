@@ -188,11 +188,10 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 #' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
 #' 
-#' Azzalini, A.. "A class of distributions which includes the normal ones". Scandinavian Journal of Statistics, 1985.
 #' WETSON, Steve, \emph{Using the foreach Package. Oct. 2015.
 #' Consulted on August 2017 at https://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf} 
 #' 
-
+#' Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
 
 genlog_simu_as <- function(real.par, init.par, sample.size = 100,
                         k = 1000, seed = 555, threads = 1){

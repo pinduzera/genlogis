@@ -13,7 +13,7 @@ genlog_slider(data, return_var = NULL, loc_range = 10, skew = F)
 
 \item{loc_range}{a number to setup the minimum and maximum range value of the mu parameter}
 
-\item{skew}{logical, if \code{TRUE}, a model with skewness should be used.}
+\item{skew}{logical, if \code{TRUE}, a model with skewness should be used..}
 }
 \value{
 The function plots a interactive graphic in RStudio Viewer panel. \cr
@@ -25,7 +25,16 @@ Make a generalized logistic distribution slider to compare histogram with theore
 }
 \details{
 There is a small gear in the top left of the graphic where you can slide the parameters \code{@param a,b,p,mu}.
-The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
+The used distribution for this package is given by: 
+\deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
+If the density function is not printed it is not defined for these parameters. \cr 
+
+For \code{skew = T} the model used is
+
+The used distribution for is given by: 
+\deqn{f(x) = 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p))))/ 
+   ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
+   ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }#' for more information about the model (\code{help(dgenlog_as)})
 If the density function is not printed it is not defined for these parameters. \cr 
 
 \code{help(dgenlog)} for parameters restrictions.\cr 
@@ -42,5 +51,7 @@ genlog_slider(datas, return_var = 'parameters')
 RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
 approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
+
+Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
 }
 \keyword{genlogis}

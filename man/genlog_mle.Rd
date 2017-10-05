@@ -27,7 +27,7 @@ Return a list of components as \code{constrOptim} \(for more information, check 
 \cr
 
 \code{counts} A two-element integer vector giving the number of calls to the likelihood 
-function and \code{L-BFGS-B} respectively. This excludes those calls needed to 
+function and \code{BFGS} respectively. This excludes those calls needed to 
 compute the Hessian, and any calls to likelihood function to compute a 
 finite-difference approximation to the gradient.\cr
 
@@ -39,6 +39,14 @@ the iteration limit \code{maxit} had been reached. For more errors \code{help(co
  or NULL.
  \cr
  
+\code{outer.iterations} gives the number of outer iterations (calls to \code{optim}).
+ \cr
+ 
+ \code{barrier.value} giving the value of the barrier function at the optimum.
+ \cr
+  
+For \code{hessian = T} add:
+
 \code{hessian} A symmetric matrix giving an estimate of the (negative) Hessian at the solution found. 
 Note that this is the Hessian of the unconstrained problem even if the box 
 constraints are active.

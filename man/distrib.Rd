@@ -54,6 +54,10 @@ The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneou
 pgenlog(0.5) 
 curve(dgenlog(x), xlim = c(-3,3)) 
 
+rgenlog(100) 
+
+qgenlog(0.95)
+
 }
 \references{
 RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
