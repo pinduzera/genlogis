@@ -77,9 +77,11 @@ datas <- rgenlog_as(10000, 0.3,0.9,1.5, 0, 0.9)
 genlog_mle_as(c(0.3,0.9,1.5, 0, 0.9),datas)
 
 ## Select parameters starting values with genlog_slider
-# datas <- rgenlog(10000, 1.5,2,2, 0)
-# genlog_slider(datas, return_var = 'parameters', skew = T) ## choose parameters
-# genlog_mle_as(parameters,datas)
+\donttest{
+datas <- rgenlog(10000, 1.5,2,2, 0)
+genlog_slider(datas, return_var = 'parameters', skew = T) ## choose parameters
+genlog_mle_as(parameters,datas)
+}
 
 }
 \references{

@@ -18,9 +18,9 @@
 #' 
 #' @export
 #' @examples 
-#' ## Not run: 
+#'  
 #' genlog_simu(real.par = c(0.3, 0.9, 1.5, 0.0), init.par = c(0.9, 0.3, 0.2, 0.0), 
-#'             sample.size = 100, k = 100, threads = 4, seed = 200) 
+#'             sample.size = 100, k = 50, threads = 2, seed = 200) 
 #' 
 #' @usage 
 #' genlog_simu(real.par, init.par, sample.size = 100,
@@ -117,10 +117,12 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
     }
     return(ret)          
   }
-  
+
   set.seed(seed)  
-  cl <- snow::makeCluster(threads) #number of CPU cores
-  doSNOW::registerDoSNOW(cl)
+  
+  cl <- parallel::makeCluster(threads)
+  doParallel::registerDoParallel(cl)
+  
   results <- data.frame()
   
   results <- foreach::foreach(i = 1:k, .packages = c('genlogis'),
@@ -128,7 +130,7 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
                                 core()        
                               }
   
-  snow::stopCluster(cl)
+  parallel::stopCluster(cl)
   
   colnames(results) <- c('a', 'b', 'p', 'mu', 'sample.size', 'convergence')
   results <- as.data.frame(results)
@@ -161,7 +163,7 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' @export
 #' @examples 
 #' genlog_simu_as(real.par = c(0.3, 0.9, 1.5, 0.0, .9), init.par = c(0.9, 0.3, 0.2, 0.0, .9), 
-#'             sample.size = 100, k = 100, threads = 4, seed = 200) 
+#'             sample.size = 100, k = 50, threads = 2, seed = 200) 
 #' 
 #' @usage 
 #' genlog_simu_as(real.par, init.par, sample.size = 100,
@@ -253,8 +255,9 @@ genlog_simu_as <- function(real.par, init.par, sample.size = 100,
   }
   
   set.seed(seed)  
-  cl <- snow::makeCluster(threads) #number of CPU cores
-  doSNOW::registerDoSNOW(cl)
+  cl <- parallel::makeCluster(threads)
+  doParallel::registerDoParallel(cl)
+  
   results <- data.frame()
   
   results <- foreach::foreach(i = 1:k, .packages = c('genlogis'),
@@ -262,7 +265,7 @@ genlog_simu_as <- function(real.par, init.par, sample.size = 100,
                                 core()        
                               }
   
-  snow::stopCluster(cl)
+  parallel::stopCluster(cl)
   
   colnames(results) <- c('a', 'b', 'p', 'mu','skew', 'sample.size', 'convergence')
   results <- as.data.frame(results)

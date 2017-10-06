@@ -9,11 +9,15 @@
 #' 
 #' @export
 #' @examples 
+#' \donttest{
 #' datas <- rgenlog(1000)
 #' genlog_slider(datas, return_var = 'parameters')
+#' }
 #' 
 #' @usage 
+#' 
 #' genlog_slider(data, return_var = NULL, loc_range = 10, skew = F)
+#' 
 #' 
 #' @return 
 #' The function plots a interactive graphic in RStudio Viewer panel. \cr
@@ -48,8 +52,14 @@
 #' Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
 
 
+
 genlog_slider <- function(data, return_var = NULL, loc_range = 10, skew = F){
-  
+
+ par_a = par_b = par_p = par_mu = returnval = binw = ..density.. = ..count.. = par_skew = NULL  
+ 
+ pos <- 1
+ envir <- as.environment(pos)
+ 
   if (!manipulate::isAvailable())
     stop("The genlog_slider function must be run from within RStudio")
 
@@ -61,7 +71,7 @@ if(skew == F){
     
     if(returnval){
       if(!is.null(return_var)){
-        assign(paste(return_var) ,manipulate::manipulatorGetState("parameters"), envir = .GlobalEnv)
+        assign(paste(return_var) ,manipulate::manipulatorGetState("parameters"), envir = envir)
         message(paste0('Parameters returned to the object \'', return_var, '\''))}
       else{
         message('No object set to receive the parameters')
@@ -97,7 +107,7 @@ if(skew == F){
       
       if(returnval){
         if(!is.null(return_var)){
-          assign(paste(return_var) ,manipulate::manipulatorGetState("parameters"), envir = .GlobalEnv)
+          assign(paste(return_var) ,manipulate::manipulatorGetState("parameters"), envir = envir)
           message(paste0('Parameters returned to the object \'', return_var, '\''))}
         else{
           message('No object set to receive the parameters')

@@ -12,6 +12,8 @@
 #' @keywords genlogis
 #' 
 #' @export
+#' @import ggplot2
+#' @import foreach
 #' @examples 
 #' pgenlog(0.5) 
 #' curve(dgenlog(x), xlim = c(-3,3)) 

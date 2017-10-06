@@ -43,8 +43,10 @@ This function requires RStudio to run.
 \cr
 }
 \examples{
+\donttest{
 datas <- rgenlog(1000)
 genlog_slider(datas, return_var = 'parameters')
+}
 
 }
 \references{

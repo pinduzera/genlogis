@@ -45,7 +45,7 @@ The used distribution for this package is given by: \deqn{f(x) = 2*((a + b*(1+p)
 }
 \examples{
 genlog_simu_as(real.par = c(0.3, 0.9, 1.5, 0.0, .9), init.par = c(0.9, 0.3, 0.2, 0.0, .9), 
-            sample.size = 100, k = 100, threads = 4, seed = 200) 
+            sample.size = 100, k = 50, threads = 2, seed = 200) 
 
 }
 \references{

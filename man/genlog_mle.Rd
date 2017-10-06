@@ -76,9 +76,11 @@ datas <- rgenlog(10000, 1.5,2,2, 0)
 genlog_mle(c(.5,1.6, 1.5, 0),datas)
 
 ## Select parameters starting values with genlog_slider
-# datas <- rgenlog(10000, 1.5,2,2, 0)
-# genlog_slider(datas, return_var = 'parameters') ## choose parameters
-# genlog_mle(parameters,datas)
+\donttest{
+datas <- rgenlog(10000, 1.5,2,2, 0)
+genlog_slider(datas, return_var = 'parameters') ## choose parameters
+genlog_mle(parameters,datas)
+}
 
 }
 \references{
