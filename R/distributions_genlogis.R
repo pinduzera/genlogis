@@ -12,8 +12,6 @@
 #' @keywords genlogis
 #' 
 #' @export
-#' @import ggplot2
-#' @import foreach
 #' @examples 
 #' pgenlog(0.5) 
 #' curve(dgenlog(x), xlim = c(-3,3)) 
@@ -47,10 +45,11 @@
 #' If \code{p} equals to 0, \code{b} or \code{a} must be 0 otherwise there is identifiability problem.\cr 
 #' 
 #' The distribution is not defined for \code{a} and \code{b} equal to 0 simultaneously.\cr 
+#' 
 #' @references 
-#' RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+#' Rathie, P. N. and Swamee, P. K (2006) \emph{On a new invertible generalized logistic distribution
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
+#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
 
 pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
 

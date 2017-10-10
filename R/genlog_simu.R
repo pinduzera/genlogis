@@ -17,6 +17,7 @@
 #' @keywords genlogis
 #' 
 #' @export
+#' @import foreach
 #' @examples 
 #'  
 #' genlog_simu(real.par = c(0.3, 0.9, 1.5, 0.0), init.par = c(0.9, 0.3, 0.2, 0.0), 
@@ -42,14 +43,11 @@
 #'  For more about the distribution use \code{help(dgenlog)}.
 #' 
 #' @references 
-#' RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+#' 
+#' Rathie, P. N. and Swamee, P. K. (2006) \emph{On a new invertible generalized logistic distribution
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
-#' 
-#' WETSON, Steve, \emph{Using the foreach Package. Oct. 2015.
-#' Consulted on August 2017 at https://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf} 
-#' 
-#' 
+#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
+
 
 genlog_simu <- function(real.par, init.par, sample.size = 100,
                          k = 1000, seed = 555, threads = 1){
@@ -186,14 +184,12 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #'    ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }
 #' 
 #' @references 
-#' RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+#' 
+#' Rathie, P. N. and Swamee, P. K (2006) \emph{On a new invertible generalized logistic distribution
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
+#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 
 #' 
-#' WETSON, Steve, \emph{Using the foreach Package. Oct. 2015.
-#' Consulted on August 2017 at https://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf} 
-#' 
-#' Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
+#' Azzalini, A. (1985) \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics.
 
 genlog_simu_as <- function(real.par, init.par, sample.size = 100,
                         k = 1000, seed = 555, threads = 1){

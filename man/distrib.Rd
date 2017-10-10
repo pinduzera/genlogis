@@ -60,8 +60,8 @@ qgenlog(0.95)
 
 }
 \references{
-RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+Rathie, P. N. and Swamee, P. K (2006) \emph{On a new invertible generalized logistic distribution
 approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
+Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
 }
 \keyword{genlogis}

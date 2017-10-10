@@ -8,6 +8,7 @@
 #' @keywords genlogis
 #' 
 #' @export
+#' @import ggplot2
 #' @examples 
 #' \donttest{
 #' datas <- rgenlog(1000)
@@ -45,18 +46,18 @@
 #' \cr 
 #'
 #' @references 
-#' RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+#' Rathie, P. N. and Swamee, P. K (2006) \emph{On a new invertible generalized logistic distribution
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
+#' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
 #' 
-#' Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
-
+#' Azzalini, A. (1985) \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics.
 
 
 genlog_slider <- function(data, return_var = NULL, loc_range = 10, skew = F){
 
  par_a = par_b = par_p = par_mu = returnval = binw = ..density.. = ..count.. = par_skew = NULL  
- 
+ par_mu1 <- mean(data)
+
  pos <- 1
  envir <- as.environment(pos)
  
@@ -95,7 +96,7 @@ if(skew == F){
   par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi), label = 'Parameter a'),
   par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5, label = 'Parameter b'),
   par_p = manipulate::slider(0,10, step = 0.01, initial = 2, label = 'Parameter p'),
-  par_mu = manipulate::slider(-loc_range,loc_range, step = 0.01, initial = 0, label = 'mu parameter'),
+  par_mu = manipulate::slider(ceiling(par_mu1 - loc_range),ceiling(par_mu1 + loc_range), step = 0.01, initial = par_mu1, label = 'mu parameter'),
   binw = manipulate::slider(0.1,10, step = 0.1, initial = 0.1, label = 'Binwidth'),
   
   returnval = manipulate::button("Return parameters to variable")
@@ -131,8 +132,8 @@ if(skew == F){
     par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi), label = 'Parameter a'),
     par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5, label = 'Parameter b'),
     par_p = manipulate::slider(0,10, step = 0.01, initial = 2, label = 'Parameter p'),
-    par_mu = manipulate::slider(-loc_range,loc_range, step = 0.01, initial = 0, label = 'mu parameter'),
-    par_skew = manipulate::slider(-1,1, step = 0.01, initial = 0, label = 'Skewness'),
+    par_mu = manipulate::slider(ceiling(par_mu1 - loc_range),ceiling(par_mu1 + loc_range), step = 0.01, initial = par_mu1, label = 'mu parameter'),
+    par_skew = manipulate::slider(-1,1, step = 0.01, initial = par_mu1, label = 'Skewness'),
     binw = manipulate::slider(0.1,10, step = 0.1, initial = 0.1, label = 'Binwidth'),
     
     returnval = manipulate::button("Return parameters to variable")

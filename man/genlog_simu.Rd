@@ -49,11 +49,8 @@ genlog_simu(real.par = c(0.3, 0.9, 1.5, 0.0), init.par = c(0.9, 0.3, 0.2, 0.0),
 
 }
 \references{
-RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+Rathie, P. N. and Swamee, P. K. (2006) \emph{On a new invertible generalized logistic distribution
 approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
-
-WETSON, Steve, \emph{Using the foreach Package. Oct. 2015.
-Consulted on August 2017 at https://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf}
+Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
 }
 \keyword{genlogis}

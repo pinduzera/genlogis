@@ -1,8 +1,8 @@
 Package: genlogis
 Title: Generalized Logistic Distribution
-Version: 0.3
+Version: 0.3.3
 Authors@R: person("Eduardo", "Hellas", email = "ehellas@gmail.com", role = c("aut", "cre"))
-Description: Works with a generalized logistic distribution proposed by Rathie and Samwee.
+Description: Provides basic distribution functions for a generalized logistic distribution proposed by Rathie and Swamee (2006). It also has a interactive 'RStudio' plot for better guessing dynamically of initial values for ease of included optimization and simulating.
 Depends: R (>= 3.2.0), ggplot2, foreach, stats
 License: GPL-3
 Encoding: UTF-8

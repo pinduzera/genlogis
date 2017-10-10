@@ -85,14 +85,12 @@ genlog_mle_as(parameters,datas)
 
 }
 \references{
-RATHIE, P. N., SWAMEE, P. K. \emph{On a new invertible generalized logistic distribution
+Rathie, P. N. and Swamee, P. K. (2006) \emph{On a new invertible generalized logistic distribution
 approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
-Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil. 2006.
+Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
 
-Byrd, R. H., Lu, P., Nocedal, J. and Zhu, C. \emph{A limited memory algorithm for bound
-constrained optimization}, Technical Report NAM-08, Dept. of Elecrtrical Engineering and
-Computer Science, Northwestern University, United States of America, mar. 1994.
+Azzalini, A. (1985) \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics.
 
-Azzalini, A. \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics, 1985.
+Byrd, R. H., Lu, P., Nocedal, J. and Zhu, C. (1995) \emph{A limited memory algorithm for bound constrained optimization}. SIAM J. Scientific Computing, \strong{16}, 1190-1208.
 }
 \keyword{genlogis}
