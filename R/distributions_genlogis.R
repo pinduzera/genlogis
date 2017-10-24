@@ -111,8 +111,10 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   if(b == 0 && a == 0){
     stop('The distribution is not defined for "a" and "b" equal to 0 simultaneously.')
   } 
-  
+
   d <- ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p)))) / ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) 
+  
+  d <- ifelse(is.nan(d), 0, d)
   
   return(d)
 }
@@ -149,6 +151,8 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
     d <- ((a1 + b1*(1+p1)*(abs(x-mu)^p1))*exp(-(x-mu)*(a1+b1*(abs(x-mu)^p1)))) / ((exp(-(x-mu)*(a1 + b1* (abs(x-mu)^p1)))+1)^2) 
+    
+    d <- ifelse(is.nan(d), 0, d)
     
     return(d)
   }
@@ -194,6 +198,8 @@ rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
     d <- ((a1 + b1*(1+p1)*(abs(x-mu)^p1))*exp(-(x-mu)*(a1+b1*(abs(x-mu)^p1)))) / ((exp(-(x-mu)*(a1 + b1* (abs(x-mu)^p1)))+1)^2) 
+    
+    d <- ifelse(is.nan(d), 0, d)
     
     return(d)
   }

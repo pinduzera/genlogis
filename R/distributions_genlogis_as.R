@@ -86,16 +86,18 @@ pgenlog_as <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = .5){
     stop('The skew parameter must be in the interval (-1,1).')
   }
   
-  pgen_log <- function(x){
+  dgen_log <- function(x){
     
     d <- 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p)))) / 
       ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
       ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1))  
     
+    d <- ifelse(is.nan(d), 0, d)
+    
     return(d)
   }
   
-  cont_dist <- distr::AbscontDistribution(d = pgen_log)
+  cont_dist <- distr::AbscontDistribution(d = dgen_log)
   
   pdist <- distr::p(cont_dist)
   
@@ -135,11 +137,13 @@ dgenlog_as <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = .5){
     stop('The skew parameter must be in the interval (-1,1).')
   }
 
-  z <- 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p)))) / 
+  d <- 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p)))) / 
     ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
     ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1))
   
-  return(z)
+  d <- ifelse(is.nan(d), 0, d)
+  
+  return(d)
   
 }
 
@@ -175,16 +179,18 @@ qgenlog_as <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = .5){
     stop('The skew parameter must be in the interval (-1,1).')
   }
   
-  pgen_log <- function(x){
+  dgen_log <- function(x){
     
     d <- 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p)))) / 
       ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
       ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1))  
     
+    d <- ifelse(is.nan(d), 0, d)
+    
     return(d)
   }
   
-  cont_dist <- distr::AbscontDistribution(d = pgen_log)
+  cont_dist <- distr::AbscontDistribution(d = dgen_log)
   
   qdist <- distr::q(cont_dist)
   
@@ -224,16 +230,18 @@ rgenlog_as <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = 0.5){
     stop('The skew parameter must be in the interval (-1,1).')
   }
   
-  pgen_log <- function(x){
+  dgen_log <- function(x){
     
     d <- 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p)))) / 
       ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
       ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1))  
     
+    d <- ifelse(is.nan(d), 0, d)
+    
     return(d)
   }
   
-  cont_dist <- distr::AbscontDistribution(d = pgen_log)
+  cont_dist <- distr::AbscontDistribution(d = dgen_log)
   
   rdist <- distr::r(cont_dist)
   

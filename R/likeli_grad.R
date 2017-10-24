@@ -47,25 +47,33 @@ genlogis.as.likeli.gr <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
   mu <- param[4]
   skew <- param[5]
   
-  gr.a <- (2*skew*(x-mu)*exp((mu-x)*(b*abs(x-mu)^p+a)-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1)^2)-
-    (4*(mu-x)*exp(2*(mu-x)*(b*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^3*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))+
-    (2*(mu-x)*exp((mu-x)*(b*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))+
-    (2*exp((mu-x)*(b*abs(x-mu)^p+a)))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))
-  
-  gr.b <- (2*skew*abs(skew)^p*(x-mu)*exp((mu-x)*(b*abs(x-mu)^p+a)-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))*abs(x-mu)^p*(b*(p+1)*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1)^2)-
-    (4*(mu-x)*exp(2*(mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p*(b*(p+1)*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^3*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))+
-    (2*(mu-x)*exp((mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p*(b*(p+1)*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))+
-    (2*(p+1)*exp((mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p)/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))
-  
-  gr.p <- (2*skew*(x-mu)*exp((mu-x)*(b*abs(x-mu)^p+a)-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a)*(b*abs(skew)^p*abs(x-mu)^p*log(abs(x-mu))+b*abs(skew)^p*log(abs(skew))*abs(x-mu)^p))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1)^2)+
-    (2*exp((mu-x)*(b*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p*log(abs(x-mu))+b*abs(x-mu)^p))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))-
-    (4*b*(mu-x)*exp(2*(mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p*(b*(p+1)*abs(x-mu)^p+a)*log(abs(x-mu)))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^3*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))+
-    (2*b*(mu-x)*exp((mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p*(b*(p+1)*abs(x-mu)^p+a)*log(abs(x-mu)))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))
-  
-  gr.mu <- -(2*exp((mu-x)*(b*abs(x-mu)^p+a))*exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a)*(skew*(b*abs(skew)^p*abs(x-mu)^p+a)+b*p*skew*abs(skew)^p*abs(x-mu)^p))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1)^2)-(4*exp(2*(mu-x)*(b*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a)*(-(b*p*(mu-x)*abs(x-mu)^p)/(x-mu)+b*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^3*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))+(2*exp((mu-x)*(b*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a)*(-(b*p*(mu-x)*abs(x-mu)^p)/(x-mu)+b*abs(x-mu)^p+a))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))-(2*b*p*(p+1)*exp((mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p)/((x-mu)*(exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1))
-  
-  gr.skew <- -(2*exp((mu-x)*(b*abs(x-mu)^p+a))*exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))*(b*(p+1)*abs(x-mu)^p+a)*(-(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a)-b*p*abs(skew)^p*(x-mu)*abs(x-mu)^p))/((exp((mu-x)*(b*abs(x-mu)^p+a))+1)^2*(exp(-skew*(x-mu)*(b*abs(skew)^p*abs(x-mu)^p+a))+1)^2)
-  
+  gr.a <- 1/(b*(p+1)*abs(x-mu)^p+a)+
+          (skew*(x-mu)*exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a)))/
+          (exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))+1)-
+          (2*(mu-x)*exp((mu-x)*(b*abs(x-mu)^p+a)))/(exp((mu-x)*(b*abs(x-mu)^p+a))+1)-x+mu
+
+  gr.b <- ((p+1)*abs(x-mu)^p)/(b*(p+1)*abs(x-mu)^p+a)+
+          (skew*abs(skew)^p*(x-mu)*exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))*abs(x-mu)^p)/
+         (exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))+1)-
+         (2*(mu-x)*exp((mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p)/
+          (exp((mu-x)*(b*abs(x-mu)^p+a))+1)-(x-mu)*abs(x-mu)^p
+
+  gr.p <- (b*(p+1)*abs(x-mu)^p*log(abs(x-mu))+b*abs(x-mu)^p)/
+          (b*(p+1)*abs(x-mu)^p+a)+
+          (skew*(x-mu)*exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))*(abs(skew)^p*b*abs(x-mu)^p*log(abs(x-mu))+abs(skew)^p*log(abs(skew))*b*abs(x-mu)^p))/
+          (exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))+1)-
+          (2*b*(mu-x)*exp((mu-x)*(b*abs(x-mu)^p+a))*abs(x-mu)^p*log(abs(x-mu)))/
+          (exp((mu-x)*(b*abs(x-mu)^p+a))+1)-b*(x-mu)*abs(x-mu)^p*log(abs(x-mu))
+
+  gr.mu <- -(b*p*(p+1)*abs(x-mu)^p)/((x-mu)*(b*(p+1)*abs(x-mu)^p+a))-
+            (exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))*(skew*(abs(skew)^p*b*abs(x-mu)^p+a)+skew*abs(skew)^p*b*p*abs(x-mu)^p))/
+            (exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))+1)-
+            (2*exp((mu-x)*(b*abs(x-mu)^p+a))*(-(b*p*(mu-x)*abs(x-mu)^p)/(x-mu)+b*abs(x-mu)^p+a))/
+            (exp((mu-x)*(b*abs(x-mu)^p+a))+1)+b*p*abs(x-mu)^p+b*abs(x-mu)^p+a
+
+  gr.skew <- -(exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))*(-(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a)-abs(skew)^p*b*p*(x-mu)*abs(x-mu)^p))/
+              (exp(-skew*(x-mu)*(abs(skew)^p*b*abs(x-mu)^p+a))+1)
+
   grad <- colSums(cbind(gr.a, gr.b, gr.p, gr.mu, gr.skew), na.rm = TRUE)
   
   return(-grad)

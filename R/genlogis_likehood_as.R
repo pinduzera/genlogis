@@ -44,11 +44,6 @@ genlogis.as.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
   }
   
   z <- -sum(log(dgenlog_as(x, a, b, p, mu, skew)))
-  # z <- sum(log((a+b*(1+p)*abs((x-location))^p ) * exp(-((x-location)*(a+b*abs((x-location))^p))))) -
-  #            sum(2*log(exp(-((x-location)*(a+b*abs((x-location))^p))) + 1))
-  # if(!is.finite(z)){
-  #   z <- 1e+20
-  # }
   
   return(z)
   }
