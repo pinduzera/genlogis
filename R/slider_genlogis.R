@@ -3,7 +3,7 @@
 #' Make a generalized logistic distribution slider to compare histogram with theoretical distribution
 #' @param data vector of data to compare.
 #' @param return_var a char string to name where parameters are assigned
-#' @param loc_range a number to setup the minimum and maximum range value of the mu parameter
+#' @param mu_range a number to setup the minimum and maximum range value of the mu parameter
 #' @param skew logical, if \code{TRUE}, a model with skewness should be used..
 #' @keywords genlogis
 #' 
@@ -17,7 +17,7 @@
 #' 
 #' @usage 
 #' 
-#' genlog_slider(data, return_var = NULL, loc_range = 10, skew = F)
+#' genlog_slider(data, return_var = NULL, mu_range = 10, skew = F)
 #' 
 #' 
 #' @return 
@@ -53,7 +53,7 @@
 #' Azzalini, A. (1985) \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics.
 
 
-genlog_slider <- function(data, return_var = NULL, loc_range = 10, skew = F){
+genlog_slider <- function(data, return_var = NULL, mu_range = 10, skew = F){
 
  par_a = par_b = par_p = par_mu = returnval = binw = ..density.. = ..count.. = par_skew = NULL  
  par_mu1 <- mean(data)
@@ -98,10 +98,10 @@ if(skew == F){
     
   },
   
-  par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi), label = 'Parameter a'),
-  par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5, label = 'Parameter b'),
-  par_p = manipulate::slider(0,10, step = 0.01, initial = 2, label = 'Parameter p'),
-  par_mu = manipulate::slider(ceiling(par_mu1 - loc_range),ceiling(par_mu1 + loc_range), step = 0.01, initial = par_mu1, label = 'mu parameter'),
+  par_a = manipulate::slider(0,10, step = 0.001, initial = sqrt(2/pi), label = 'Parameter a'),
+  par_b = manipulate::slider(0,10, step = 0.001, initial = 0.5, label = 'Parameter b'),
+  par_p = manipulate::slider(0,10, step = 0.001, initial = 2, label = 'Parameter p'),
+  par_mu = manipulate::slider(ceiling(par_mu1 - mu_range),ceiling(par_mu1 + mu_range), step = 0.01, initial = par_mu1, label = 'mu parameter'),
   binw = manipulate::slider(0.1,10, step = 0.1, initial = 0.1, label = 'Binwidth'),
   
   returnval = manipulate::button("Return parameters to variable")
@@ -138,11 +138,11 @@ if(skew == F){
                        legend.title = element_text(size=10, face="bold"))      
     },
     
-    par_a = manipulate::slider(0,10, step = 0.01, initial = sqrt(2/pi), label = 'Parameter a'),
-    par_b = manipulate::slider(0,10, step = 0.01, initial = 0.5, label = 'Parameter b'),
-    par_p = manipulate::slider(0,10, step = 0.01, initial = 2, label = 'Parameter p'),
-    par_mu = manipulate::slider(ceiling(par_mu1 - loc_range),ceiling(par_mu1 + loc_range), step = 0.01, initial = par_mu1, label = 'mu parameter'),
-    par_skew = manipulate::slider(-1,1, step = 0.01, initial = 0, label = 'Skewness'),
+    par_a = manipulate::slider(0,10, step = 0.001, initial = sqrt(2/pi), label = 'Parameter a'),
+    par_b = manipulate::slider(0,10, step = 0.001, initial = 0.5, label = 'Parameter b'),
+    par_p = manipulate::slider(0,10, step = 0.001, initial = 2, label = 'Parameter p'),
+    par_mu = manipulate::slider(ceiling(par_mu1 - mu_range),ceiling(par_mu1 + mu_range), step = 0.01, initial = par_mu1, label = 'mu parameter'),
+    par_skew = manipulate::slider(-1,1, step = 0.001, initial = 0, label = 'Skewness'),
     binw = manipulate::slider(0.1,10, step = 0.1, initial = 0.1, label = 'Binwidth'),
     
     returnval = manipulate::button("Return parameters to variable")
