@@ -123,18 +123,18 @@ genlog_mle <- function(parameters, data, hessian = F, alpha = 0.05){
 #' @examples 
 #' 
 #' ## Using generic parameter starting values
-#' datas <- rgenlog_as(10000, 0.3,0.9,1.5, 0, 0.9)
-#' genlog_mle_as(c(0.3,0.9,1.5, 0, 0.9),datas)
+#' datas <- rgenlog_sk(10000, 0.3,0.9,1.5, 0, 0.9)
+#' genlog_mle_sk(c(0.3,0.9,1.5, 0, 0.9),datas)
 #' 
 #' ## Select parameters starting values with genlog_slider
 #' \donttest{
 #' datas <- rgenlog(10000, 1.5,2,2, 0)
 #' genlog_slider(datas, return_var = 'parameters', skew = T) ## choose parameters
-#' genlog_mle_as(parameters,datas)
+#' genlog_mle_sk(parameters,datas)
 #' }
 #' 
 #' @usage 
-#' genlog_mle_as(parameters, data, hessian = F, alpha = 0.05)
+#' genlog_mle_sk(parameters, data, hessian = F, alpha = 0.05)
 #' 
 #' @details 
 #' Maximum likehood estimation of parameters for the distribution proposed in this package.\cr
@@ -147,7 +147,7 @@ genlog_mle <- function(parameters, data, hessian = F, alpha = 0.05){
 #'    ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
 #'    ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }
 #' 
-#' \code{help(dgenlog_as)} for parameters restrictions.\cr
+#' \code{help(dgenlog_sk)} for parameters restrictions.\cr
 #' 
 #' @return 
 #' 
@@ -199,10 +199,10 @@ genlog_mle <- function(parameters, data, hessian = F, alpha = 0.05){
 #' Byrd, R. H., Lu, P., Nocedal, J. and Zhu, C. (1995) \emph{A limited memory algorithm for bound constrained optimization}. SIAM J. Scientific Computing, \strong{16}, 1190-1208.
 
 
-genlog_mle_as <- function(parameters, data, hessian = F, alpha = 0.05){
+genlog_mle_sk <- function(parameters, data, hessian = F, alpha = 0.05){
 
-  fn <- function(p) genlogis.as.loglikehood(param = p, x = data)
-  grr <- function(k) genlogis.as.likeli.gr(param = k, x = data)
+  fn <- function(p) genlogis.sk.loglikehood(param = p, x = data)
+  grr <- function(k) genlogis.sk.likeli.gr(param = k, x = data)
   ui <- rbind(c(1, 0, 0, 0, 0), c(0, 1, 0, 0, 0), c(0, 0, 1, 0, 0), 
               c(0, 0, 0, 0, 1), c(0, 0, 0, 0, -1))
   ci <- c(0, 0, 0, -1, -1)    

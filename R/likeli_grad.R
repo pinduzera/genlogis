@@ -34,7 +34,7 @@ genlogis.likeli.gr <- function(param = c(sqrt(2/pi),0.5, 2, 0), x){
 
 ### this is a function of internal use for MLE in optim_mle() function
 
-genlogis.as.likeli.gr <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
+genlogis.sk.likeli.gr <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
   
   if(length(param) != 5){
     stop('Incorrect number of parameters: param = c(a, b, p, mu, skew)')

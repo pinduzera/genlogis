@@ -34,7 +34,7 @@ For \code{skew = T} the model used is
 The used distribution for is given by: 
 \deqn{f(x) = 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p))))/ 
    ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
-   ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }#' for more information about the model (\code{help(dgenlog_as)})
+   ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }#' for more information about the model (\code{help(dgenlog_sk)})
 If the density function is not printed it is not defined for these parameters. \cr 
 
 \code{help(dgenlog)} for parameters restrictions.\cr 

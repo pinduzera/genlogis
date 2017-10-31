@@ -37,7 +37,7 @@
 #' The used distribution for is given by: 
 #' \deqn{f(x) = 2*((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(abs(x-mu)^p))))/ 
 #'    ((exp(-(x-mu)*(a + b* (abs(x-mu)^p)))+1)^2) *
-#'    ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }#' for more information about the model (\code{help(dgenlog_as)})
+#'    ((exp(-(skew*(x-mu))*(a+b*(abs(skew*(x-mu))^p)))+1)^(-1)) }#' for more information about the model (\code{help(dgenlog_sk)})
 #' If the density function is not printed it is not defined for these parameters. \cr 
 #' 
 #' \code{help(dgenlog)} for parameters restrictions.\cr 
@@ -126,7 +126,7 @@ if(skew == F){
                                 colour = 'black', ggplot2::aes(y = ..density.., fill =..count..))+
         ggplot2::scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")+
         ggplot2::geom_density(aes(color = 'Data\nEmpirical Density'), size = 1)+
-        ggplot2::stat_function(fun= dgenlog_as,
+        ggplot2::stat_function(fun= dgenlog_sk,
                                args = c(a = par_a, b = par_b, p = par_p, mu = par_mu, skew = par_skew),
                                aes(colour="Theoretical\nDistribution Density"), size = 1) +
         ggplot2::labs(y = 'Density', x = 'X', 

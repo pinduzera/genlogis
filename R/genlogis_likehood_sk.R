@@ -1,6 +1,6 @@
-### this is a function of internal use for MLE in optim_mle_as() function
+### this is a function of internal use for MLE in optim_mle_sk() function
 
-genlogis.as.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
+genlogis.sk.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
   
   if(length(param) != 5){
     stop('Incorrect number of parameters: param = c(a, b, p, mu, skew)')
@@ -43,7 +43,7 @@ genlogis.as.loglikehood <- function(param = c(sqrt(2/pi),0.5, 2, 0, .5), x){
     stop('The skew parameter must be in the interval (-1,1).')
   }
   
-  z <- -sum(log(dgenlog_as(x, a, b, p, mu, skew)))
+  z <- -sum(log(dgenlog_sk(x, a, b, p, mu, skew)))
   
   return(z)
   }

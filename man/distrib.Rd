@@ -8,18 +8,20 @@
 \alias{rgenlog}
 \title{The Generalized logistic distribution}
 \usage{
-pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
+pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, lower.tail = TRUE)
 
 dgenlog(x, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
 
-qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
+qgenlog(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, lower.tail = TRUE)
 
 rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
 }
 \arguments{
-\item{a, b, p}{parameters >= 0, with restrictions.*}
+\item{a, b, p}{parameters \eqn{\ge 0}, with restrictions.*}
 
 \item{mu}{mu parameter}
+
+\item{lower.tail}{logical; if TRUE (default), probabilities are \eqn{P[X \le x]} otherwise, \eqn{P[X > x]}.}
 
 \item{x, q}{vector of quantiles.}
 
@@ -38,9 +40,7 @@ rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
 Density, distribution function, quantile function and random generation a generalized logistic distribution.
 }
 \details{
-The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
- 
-The \code{qgenlog()} returns values for P(X < x).\cr 
+The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(|x-mu|^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
 
 The default values for \code{a, b, p and mu} produces a function with mean 0 and variance close to 1.\cr 
 
@@ -57,6 +57,7 @@ curve(dgenlog(x), xlim = c(-3,3))
 rgenlog(100) 
 
 qgenlog(0.95)
+
 
 }
 \references{

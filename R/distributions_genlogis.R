@@ -7,8 +7,9 @@
 #' @param x,q vector of quantiles.
 #' @param k vector of probabilities.
 #' @param n number of observations. If length(n) > 1, the length is taken to be the number required
-#' @param a,b,p  parameters >= 0, with restrictions.*
+#' @param a,b,p  parameters \eqn{\ge 0}, with restrictions.*
 #' @param mu mu parameter
+#' @param lower.tail logical; if TRUE (default), probabilities are \eqn{P[X \le x]} otherwise, \eqn{P[X > x]}.
 #' @keywords genlogis
 #' 
 #' @export
@@ -20,8 +21,6 @@
 #' 
 #' qgenlog(0.95)
 #' 
-#' @usage 
-#' pgenlog(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
 #' 
 #' @name distrib
 #'  
@@ -34,9 +33,7 @@
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(abs(x-mu)^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
-#'  
-#' The \code{qgenlog()} returns values for P(X < x).\cr 
+#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(|x-mu|^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
 #' 
 #' The default values for \code{a, b, p and mu} produces a function with mean 0 and variance close to 1.\cr 
 #' 
@@ -51,7 +48,10 @@
 #' approximation to normal distribution}, Technical Research Report in Statistics, 07/2006,
 #' Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.
 
-pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
+#' @rdname distrib
+#' @export
+
+pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, lower.tail = TRUE){
 
   if(!missing(a)){
     if(a < 0){
@@ -78,6 +78,7 @@ pgenlog <- function(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   }
   
   z <- (exp(-(q-mu)*(a+b*(abs(q-mu)^p)))+1)^(-1)
+  z <- ifelse(lower.tail == TRUE, z, 1-z)
   
   return(z)
 }
@@ -122,7 +123,7 @@ dgenlog <- function(x, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
 #' @rdname distrib
 #' @export
 
-qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
+qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, lower.tail = TRUE){
   
   if(!missing(a)){
     if(a < 0){
@@ -151,9 +152,8 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
     d <- ((a1 + b1*(1+p1)*(abs(x-mu)^p1))*exp(-(x-mu)*(a1+b1*(abs(x-mu)^p1)))) / ((exp(-(x-mu)*(a1 + b1* (abs(x-mu)^p1)))+1)^2) 
-    
     d <- ifelse(is.nan(d), 0, d)
-    
+
     return(d)
   }
   
@@ -161,7 +161,9 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   
   qdist <- distr::q(cont_dist)
   
-  return(qdist(k))
+  ret <- ifelse(lower.tail == TRUE, qdist(k), qdist(1-k))
+  
+  return(ret)
   
 }
 
@@ -208,6 +210,8 @@ rgenlog <- function(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0){
   
   rdist <- distr::r(cont_dist)
   
-  return(rdist(n))
+  ret <- rdist(n)
+  
+  return(ret)
   
 }

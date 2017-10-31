@@ -160,11 +160,11 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' 
 #' @export
 #' @examples 
-#' genlog_simu_as(real.par = c(0.3, 0.9, 1.5, 0.0, .9), init.par = c(0.9, 0.3, 0.2, 0.0, .9), 
+#' genlog_simu_sk(real.par = c(0.3, 0.9, 1.5, 0.0, .9), init.par = c(0.9, 0.3, 0.2, 0.0, .9), 
 #'             sample.size = 100, k = 50, threads = 2, seed = 200) 
 #' 
 #' @usage 
-#' genlog_simu_as(real.par, init.par, sample.size = 100,
+#' genlog_simu_sk(real.par, init.par, sample.size = 100,
 #'             k = 1000, seed = 555, threads = 1)
 #' 
 #' @return 
@@ -191,7 +191,7 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' 
 #' Azzalini, A. (1985) \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics.
 
-genlog_simu_as <- function(real.par, init.par, sample.size = 100,
+genlog_simu_sk <- function(real.par, init.par, sample.size = 100,
                         k = 1000, seed = 555, threads = 1){
   
   if(length(real.par) !=5 ){
@@ -235,11 +235,11 @@ genlog_simu_as <- function(real.par, init.par, sample.size = 100,
   
   core <- function(){
     
-    am1 <- rgenlog_as(a = a, b = b,
+    am1 <- rgenlog_sk(a = a, b = b,
                    p = p, mu = mu, skew = skew,
                    n = sample.size)
     
-    mle1 <- genlog_mle_as(init.par, data = am1)
+    mle1 <- genlog_mle_sk(init.par, data = am1)
     
     
     ret <- rbind(c(mle1$par, sample.size, mle1$convergence))
