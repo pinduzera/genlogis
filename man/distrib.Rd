@@ -40,7 +40,8 @@ rgenlog(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0)
 Density, distribution function, quantile function and random generation a generalized logistic distribution.
 }
 \details{
-The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(|x-mu|^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
+The used distribution for this package is given by: 
+\deqn{f(x) = ((a + b*(1+p)*(|x-mu|^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
 
 The default values for \code{a, b, p and mu} produces a function with mean 0 and variance close to 1.\cr 
 
