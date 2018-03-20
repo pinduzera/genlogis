@@ -33,7 +33,8 @@
 #' 
 #' @details 
 #' 
-#' The used distribution for this package is given by: \deqn{f(x) = ((a + b*(1+p)*(|x-mu|^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
+#' The used distribution for this package is given by: 
+#' \deqn{f(x) = ((a + b*(1+p)*(|x-mu|^p))*exp(-(x-mu)*(a+b*(|x-mu|^p)))) / ((exp(-(x-mu)*(a + b* (|x-mu|^p)))+1)^2)}
 #' 
 #' The default values for \code{a, b, p and mu} produces a function with mean 0 and variance close to 1.\cr 
 #' 
@@ -151,7 +152,8 @@ qgenlog <- function(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, lower.tail = TRUE
   
   dgen_log <- function(x, a1 = a, b1 = b, p1 = p){
     
-    d <- ((a1 + b1*(1+p1)*(abs(x-mu)^p1))*exp(-(x-mu)*(a1+b1*(abs(x-mu)^p1)))) / ((exp(-(x-mu)*(a1 + b1* (abs(x-mu)^p1)))+1)^2) 
+    d <- ((a1 + b1*(1+p1)*(abs(x-mu)^p1))*exp(-(x-mu)*(a1+b1*(abs(x-mu)^p1)))) / 
+      ((exp(-(x-mu)*(a1 + b1* (abs(x-mu)^p1)))+1)^2) 
     d <- ifelse(is.nan(d), 0, d)
 
     return(d)
