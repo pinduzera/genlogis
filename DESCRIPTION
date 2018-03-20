@@ -11,6 +11,7 @@ LazyData: true
 Imports: distr, 
 	 manipulate,
 	 doParallel,
-	 parallel
+	 parallel,
+	 tcltk
 SystemRequirements: RStudio - http://www.rstudio.com/products/rstudio/
 RoxygenNote: 6.0.1.9000

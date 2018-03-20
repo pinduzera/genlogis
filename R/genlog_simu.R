@@ -14,6 +14,7 @@
 #' @param seed seed to be given to \code{set.seed()} function during the sampling process
 #' @param threads the numbers of CPU threads to be used for parallel computing. If the threads 
 #' number is higher than the available the maximum allowed will be used.
+#' @param progress.bar show progress bar for each thread during simulations, default value \code{TRUE}.
 #' @keywords genlogis
 #' 
 #' @export
@@ -25,7 +26,7 @@
 #' 
 #' @usage 
 #' genlog_simu(real.par, init.par, sample.size = 100,
-#'             k = 1000, seed = 555, threads = 1)
+#'             k = 1000, seed = 555, threads = 1, progress.bar = T)
 #' 
 #' @return 
 #' It returns a data.frame with \code{k} rows (each simulation) and 7 columns with the following information:
@@ -50,7 +51,7 @@
 
 
 genlog_simu <- function(real.par, init.par, sample.size = 100,
-                         k = 1000, seed = 555, threads = 1){
+                         k = 1000, seed = 555, threads = 1, progress.bar = T){
   
   if(length(real.par) < 3 | length(real.par) > 4 ){
     stop('Incorrect number of parameters: real.par = c(a,b,p,mu)')
@@ -123,8 +124,12 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
   
   results <- data.frame()
   
-  results <- foreach::foreach(i = 1:k, .packages = c('genlogis'),
+  results <- foreach::foreach(i = 1:k, .packages = c('genlogis', 'tcltk'),
                               .combine = 'rbind', .inorder = T) %dopar% {
+                                if(progress.bar == T){
+                                if(!exists("pb")) pb <- tcltk::tkProgressBar("Parallel task", min=1, max=k)
+                                tcltk::setTkProgressBar(pb, i)
+                                }
                                 core()        
                               }
   
@@ -156,6 +161,7 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' @param seed seed to be given to \code{set.seed()} function during the sampling process
 #' @param threads the numbers of CPU threads to be used for parallel computing. If the threads 
 #' number is higher than the available the maximum allowed will be used.
+#' @param progress.bar show progress bar for each thread during simulations, default value \code{TRUE}.
 #' @keywords genlogis
 #' 
 #' @export
@@ -165,7 +171,7 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' 
 #' @usage 
 #' genlog_simu_sk(real.par, init.par, sample.size = 100,
-#'             k = 1000, seed = 555, threads = 1)
+#'             k = 1000, seed = 555, threads = 1, progress.bar = T)
 #' 
 #' @return 
 #' It returns a data.frame with \code{k} rows (each simulation) and 7 columns with the following information:
@@ -192,7 +198,7 @@ genlog_simu <- function(real.par, init.par, sample.size = 100,
 #' Azzalini, A. (1985) \emph{A class of distributions which includes the normal ones}. Scandinavian Journal of Statistics.
 
 genlog_simu_sk <- function(real.par, init.par, sample.size = 100,
-                        k = 1000, seed = 555, threads = 1){
+                        k = 1000, seed = 555, threads = 1, progress.bar = T){
   
   if(length(real.par) !=5 ){
     stop('Incorrect number of parameters: real.par = c(a, b, p, mu, skew)')
@@ -256,8 +262,12 @@ genlog_simu_sk <- function(real.par, init.par, sample.size = 100,
   
   results <- data.frame()
   
-  results <- foreach::foreach(i = 1:k, .packages = c('genlogis'),
+  results <- foreach::foreach(i = 1:k, .packages = c('genlogis', 'tcltk'),
                               .combine = 'rbind', .inorder = T) %dopar% {
+                                if(progress.bar == T){
+                                  if(!exists("pb")) pb <- tcltk::tkProgressBar("Parallel task", min=1, max=k)
+                                  tcltk::setTkProgressBar(pb, i)
+                                }
                                 core()        
                               }
   

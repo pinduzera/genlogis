@@ -5,7 +5,7 @@
 \title{Simulating the Generalized logistic distribution}
 \usage{
 genlog_simu(real.par, init.par, sample.size = 100,
-            k = 1000, seed = 555, threads = 1)
+            k = 1000, seed = 555, threads = 1, progress.bar = T)
 }
 \arguments{
 \item{real.par}{the real parameters value of the distribution wich the random sample will be taken. It has to be a vector of length 4,
@@ -23,6 +23,8 @@ Can be an object returned by \code{genlog_slider}. There are no default values.}
 
 \item{threads}{the numbers of CPU threads to be used for parallel computing. If the threads 
 number is higher than the available the maximum allowed will be used.}
+
+\item{progress.bar}{show progress bar for each thread during simulations, default value \code{TRUE}.}
 }
 \value{
 It returns a data.frame with \code{k} rows (each simulation) and 7 columns with the following information:
