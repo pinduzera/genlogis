@@ -1,7 +1,7 @@
 
 # R genlogis
-
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/genlogis)](https://cran.r-project.org/package=genlogis)
+[![downloads](http://cranlogs.r-pkg.org/badges/d3wordcloud)](http://www.r-pkg.org/pkg/d3wordcloud)
 
 This package provides basic distribution functions for a generalized
 logistic distribution proposed by Rathie and Swamee (2006)
