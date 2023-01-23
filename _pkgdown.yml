@@ -2,3 +2,8 @@ url: https://pinduzera.github.io/genlogis/
 template:
   bootstrap: 5
 
+navbar:
+    right:
+      - icon: fa-github fa-lg
+        text: "github"
+        href: https://github.com/pinduzera/genlogis/
