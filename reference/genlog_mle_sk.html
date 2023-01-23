@@ -24,7 +24,14 @@
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/pinduzera/genlogis/">
+    <span class="fa fa-github fa-lg"></span>
+     
+    github
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -157,14 +164,14 @@ Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.</p>
 <span class="r-in"><span><span class="va">datas</span> <span class="op">&lt;-</span> <span class="fu"><a href="distrib_sk.html">rgenlog_sk</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">1.5</span>, <span class="fl">0</span>, <span class="fl">0.9</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">genlog_mle_sk</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.9</span>,<span class="fl">1.5</span>, <span class="fl">0</span>, <span class="fl">0.9</span><span class="op">)</span>,<span class="va">datas</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $par</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.30185858  0.89291610  1.49491493 -0.00186852  0.91428998</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.291935207  0.913139043  1.461818162 -0.006611291  0.917229274</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 10885.94</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 10874.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $counts</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function gradient </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       59        8 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       45        8 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $convergence</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
@@ -176,7 +183,7 @@ Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $barrier.value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0001518863</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.000151263</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Select parameters starting values with genlog_slider</span></span></span>
@@ -191,14 +198,14 @@ Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">genlog_mle_sk</span><span class="op">(</span><span class="va">parameters</span>, <span class="va">datas</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $par</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  1.43593016  2.04176332  1.83706560 -0.00298318  0.01479359</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  1.573190648  1.870266416  2.149176935  0.004106287 -0.014384578</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 8261.971</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 8334.158</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $counts</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> function gradient </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       79       19 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       84       20 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $convergence</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
@@ -210,7 +217,7 @@ Dept. of Statistics, Univ. of Brasilia, Brasilia, Brazil.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $barrier.value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0002220316</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.0002064364</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
