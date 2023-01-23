@@ -5,5 +5,5 @@ template:
 navbar:
     right:
       - icon: fa-github fa-lg
-        text: "github"
+        text: ""
         href: https://github.com/pinduzera/genlogis/
