@@ -19,7 +19,13 @@
 #' ## Select parameters starting values with genlog_slider
 #' \donttest{
 #' datas <- rgenlog(10000, 1.5,2,2, 0)
-#' genlog_slider(datas, return_var = 'parameters') ## choose parameters
+#' 
+#' if (manipulate::isAvailable()) {
+#'   genlog_slider(datas, return_var = 'parameters') ## choose parameters
+#' } else {
+#'   parameters <- c(1.345, 2, 2, -0.00510)
+#' }
+#' 
 #' genlog_mle(parameters,datas)
 #' }
 #' 
@@ -129,8 +135,14 @@ genlog_mle <- function(parameters, data, hessian = F, alpha = 0.05){
 #' ## Select parameters starting values with genlog_slider
 #' \donttest{
 #' datas <- rgenlog(10000, 1.5,2,2, 0)
-#' genlog_slider(datas, return_var = 'parameters', skew = T) ## choose parameters
-#' genlog_mle_sk(parameters,datas)
+#' 
+#' if (manipulate::isAvailable()) {
+#'   genlog_slider(datas, return_var = 'parameters', skew = T) ## choose parameters
+#'  } else {
+#'  parameters <- c( 1, 1.5, 1.3, 0.5, -.4)
+#'  }
+#' 
+#' genlog_mle_sk(parameters, datas)
 #' }
 #' 
 #' @usage 

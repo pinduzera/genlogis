@@ -14,4 +14,4 @@ Imports: distr,
 	 parallel,
 	 tcltk
 SystemRequirements: RStudio - http://www.rstudio.com/products/rstudio/
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 7.2.3

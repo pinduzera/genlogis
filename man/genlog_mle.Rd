@@ -78,7 +78,13 @@ genlog_mle(c(.5,1.6, 1.5, 0),datas)
 ## Select parameters starting values with genlog_slider
 \donttest{
 datas <- rgenlog(10000, 1.5,2,2, 0)
-genlog_slider(datas, return_var = 'parameters') ## choose parameters
+
+if (manipulate::isAvailable()) {
+  genlog_slider(datas, return_var = 'parameters') ## choose parameters
+} else {
+  parameters <- c(1.345, 2, 2, -0.00510)
+}
+
 genlog_mle(parameters,datas)
 }
 

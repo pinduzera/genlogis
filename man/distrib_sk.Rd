@@ -8,13 +8,27 @@
 \alias{rgenlog_sk}
 \title{The Generalized logistic distribution with skewness}
 \usage{
-pgenlog_sk(q, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = 0.5,
-  lower.tail = TRUE)
+pgenlog_sk(
+  q,
+  a = sqrt(2/pi),
+  b = 0.5,
+  p = 2,
+  mu = 0,
+  skew = 0.5,
+  lower.tail = TRUE
+)
 
 dgenlog_sk(x, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = 0.5)
 
-qgenlog_sk(k, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = 0.5,
-  lower.tail = TRUE)
+qgenlog_sk(
+  k,
+  a = sqrt(2/pi),
+  b = 0.5,
+  p = 2,
+  mu = 0,
+  skew = 0.5,
+  lower.tail = TRUE
+)
 
 rgenlog_sk(n, a = sqrt(2/pi), b = 0.5, p = 2, mu = 0, skew = 0.5)
 }

@@ -45,7 +45,9 @@ This function requires RStudio to run.
 \examples{
 \donttest{
 datas <- rgenlog(1000)
-genlog_slider(datas, return_var = 'parameters')
+if (manipulate::isAvailable()) {
+  genlog_slider(datas, return_var = 'parameters')
+ }
 }
 
 }

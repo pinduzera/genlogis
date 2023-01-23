@@ -12,7 +12,9 @@
 #' @examples 
 #' \donttest{
 #' datas <- rgenlog(1000)
-#' genlog_slider(datas, return_var = 'parameters')
+#' if (manipulate::isAvailable()) {
+#'   genlog_slider(datas, return_var = 'parameters')
+#'  }
 #' }
 #' 
 #' @usage 
@@ -55,7 +57,7 @@
 
 genlog_slider <- function(data, return_var = NULL, mu_range = 10, skew = F){
 
- par_a = par_b = par_p = par_mu = returnval = binw = ..density.. = ..count.. = par_skew = NULL  
+ par_a = par_b = par_p = par_mu = returnval = binw = density = ..count.. = par_skew = NULL  
  par_mu1 <- mean(data)
 
  pos <- 1
@@ -82,7 +84,7 @@ if(skew == F){
     ggplot2::ggplot(data = data, ggplot2::aes(x = data)) +
       ggplot2::theme_bw()+
       ggplot2::geom_histogram(binwidth = binw,
-                              color = 'black', ggplot2::aes(y = ..density.., fill =..count..))+
+                              color = 'black', ggplot2::aes(y = after_stat(density), fill =..count..))+
       ggplot2::geom_density(aes(color = 'Data\nEmpirical Density'), size = 1)+
       ggplot2::scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")+
       ggplot2::stat_function(fun= dgenlog,
@@ -91,7 +93,7 @@ if(skew == F){
       ggplot2::labs(y = 'Density', x = 'X', 
                     title = 'Theoretical density vs Empirical density') +
       scale_colour_manual("Densities", values = c("black", "red"))+
-      guides(fill=FALSE)+
+      guides(fill="none")+
       ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold', size = 18),
                      legend.position = c(0.1, .9), legend.background = NULL,
                      legend.title = element_text(size=10, face="bold"))   
@@ -123,7 +125,7 @@ if(skew == F){
       ggplot2::ggplot(data = data, ggplot2::aes(x = data)) +
         ggplot2::theme_bw()+
         ggplot2::geom_histogram(binwidth = binw,
-                                colour = 'black', ggplot2::aes(y = ..density.., fill =..count..))+
+                                colour = 'black', ggplot2::aes(y = after_stat(density), fill =..count..))+
         ggplot2::scale_fill_gradient("Count", low="#DCDCDC", high="#7C7C7C")+
         ggplot2::geom_density(aes(color = 'Data\nEmpirical Density'), size = 1)+
         ggplot2::stat_function(fun= dgenlog_sk,
@@ -132,7 +134,7 @@ if(skew == F){
         ggplot2::labs(y = 'Density', x = 'X', 
                       title = 'Theoretical density vs Empirical histogram') +
         scale_colour_manual("Densities", values = c("black", "red"))+
-        guides(fill=FALSE)+
+        guides(fill="none")+
         ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold', size = 18),
                        legend.position = c(0.1, .9), legend.background = NULL,
                        legend.title = element_text(size=10, face="bold"))      
