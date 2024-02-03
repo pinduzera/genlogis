@@ -10,7 +10,9 @@
 #' @export
 #' @import ggplot2
 #' @examples 
-#' \donttest{
+#' \dontrun{
+#' ## The genlog_slider function requires an interactive RStudio session to work.
+#' 
 #' datas <- rgenlog(1000)
 #' if (manipulate::isAvailable()) {
 #'   genlog_slider(datas, return_var = 'parameters')
