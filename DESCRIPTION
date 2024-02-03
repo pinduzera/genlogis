@@ -13,6 +13,6 @@ Imports: distr,
 	 doParallel,
 	 parallel,
 	 tcltk
-SystemRequirements: RStudio - http://www.rstudio.com/products/rstudio/
+SystemRequirements: RStudio - https://posit.co/products/open-source/rstudio/
 RoxygenNote: 7.3.1
 URL: https://pinduzera.github.io/genlogis/
