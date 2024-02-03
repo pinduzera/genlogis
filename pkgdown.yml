@@ -2,7 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-02-03T15:02Z
+last_built: 2024-02-03T15:04Z
 urls:
   reference: https://pinduzera.github.io/genlogis/reference
   article: https://pinduzera.github.io/genlogis/articles
