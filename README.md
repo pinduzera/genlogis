@@ -1,7 +1,11 @@
 
 # R genlogis
 
+<!-- badges: start -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/genlogis)](https://cran.r-project.org/package=genlogis)
+[![r-universe status](https://pinduzera.r-universe.dev/genlogis/badges/version)](https://pinduzera.r-universe.dev/genlogis)
+[![r-universe status](https://pinduzera.r-universe.dev/genlogis/badges/checks)](https://pinduzera.r-universe.dev/genlogis)
+<!-- badges: end -->
 
 This package provides basic distribution functions for a generalized
 logistic distribution proposed by Rathie and Swamee (2006)
